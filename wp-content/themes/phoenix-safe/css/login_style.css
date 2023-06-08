@@ -1,0 +1,7 @@
+.login.login-action-confirmaction #login > p {
+	margin: 15px;
+}
+.login.login-action-confirmaction #login > .success {
+	border: 1px solid #eaeaea;
+	border-left: 4px solid #00a32a;
+}

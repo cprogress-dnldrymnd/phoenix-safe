@@ -1,0 +1,5 @@
+[data-elementor-device-mode="desktop"] .elementor-edit-area-active .pgscore_menu_list-title.elementor-hidden-desktop,
+[data-elementor-device-mode="tablet"] .elementor-edit-area-active .pgscore_menu_list-title.elementor-hidden-tablet,
+[data-elementor-device-mode="mobile"] .elementor-edit-area-active .pgscore_menu_list-title.elementor-hidden-phone {
+	display: none !important;
+}
