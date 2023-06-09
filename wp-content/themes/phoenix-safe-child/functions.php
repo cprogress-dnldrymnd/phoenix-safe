@@ -16,19 +16,66 @@
  *
  * @link https://codex.wordpress.org/Child_Themes
  */
-function phoenix_safe_child_enqueue_styles() { // phpcs:ignore WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis
 
-	wp_enqueue_style( 'ciyashop-style', get_parent_theme_file_uri( '/css/style.css' ), array(), '3.5.2' );
+define('theme_dir', get_stylesheet_directory_uri() . '/');
+define('assets_dir', theme_dir . '/assets/');
+define('image_dir', assets_dir . '/images/');
+define('vendor_dir', assets_dir . '/vendors/');
 
-	if ( is_rtl() ) {
-		wp_enqueue_style( 'rtl-style', get_parent_theme_file_uri( '/rtl.css' ), array(), '3.5.2' );
+function phoenix_safe_child_enqueue_styles()
+{ // phpcs:ignore WordPress.WhiteSpace.ControlStructureSpacing.NoSpaceAfterOpenParenthesis
+
+	wp_enqueue_style('ciyashop-style', get_parent_theme_file_uri('/css/style.css'), array(), '3.5.2');
+
+	if (is_rtl()) {
+		wp_enqueue_style('rtl-style', get_parent_theme_file_uri('/rtl.css'), array(), '3.5.2');
 	}
 
 	wp_enqueue_style(
 		'phoenix-safe-child-child-style',
 		get_stylesheet_directory_uri() . '/style.css',
-		array( 'ciyashop-style' ),
-		wp_get_theme()->get( 'Version' )
+		array('ciyashop-style'),
+		wp_get_theme()->get('Version')
 	);
+
+	wp_enqueue_style('tissue-paper-swiper-css', vendor_dir . 'swiper/swiper-bundle.min.css');
+	wp_enqueue_script('tissue-paper-swiper-js', vendor_dir . 'swiper/swiper-bundle.min.js');
+	wp_enqueue_script('tissue-paper-js', assets_dir . 'js/main.js');
+
 }
-add_action( 'wp_enqueue_scripts', 'phoenix_safe_child_enqueue_styles', 11 );
+add_action('wp_enqueue_scripts', 'phoenix_safe_child_enqueue_styles', 11);
+
+
+function newsletter()
+{
+	ob_start()
+		?>
+	<div class="newsletter">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="heading-box">
+					<h3>
+						Our Newsletter
+					</h3>
+				</div>
+				<div class="description-box">
+					<p>
+						Sign up to our newsletter to get the latest news and offers.
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<?= do_shortcode( '[contact-form-7 id="39193" title="Newsletter"]' ) ?>
+				<div class="privacy-text">
+					<p>
+						By subscribing, you are agreeing to our <a href="<?= get_privacy_policy_url() ?>">Privacy Policy</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
+	return ob_get_clean();
+}
+
+add_shortcode('newsletter', 'newsletter');

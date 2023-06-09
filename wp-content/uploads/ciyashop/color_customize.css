@@ -183,4 +183,16 @@ header.header-style-custom .header-element-item .woo-tools-cart .woocommerce-min
 	/* Border Bottom Color */
 	.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b { border-bottom-color: #969696; }
 
-	 
+	  .header-topbar { background-repeat: inherit;background-size: inherit;background-attachment: inherit;background-position: inherit; } .header-topbar { border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: #e8e8e8; }
+						.header-topbar-desktop,
+						.header-topbar-desktop .divider-full-height { height: 38px; }
+						.header-topbar-mobile,
+						.header-topbar-mobile .divider-full-height { height: 38px; } .header-main { background-repeat: inherit;background-size: inherit;background-attachment: inherit;background-position: inherit; } .header-main {  }
+						.header-main-desktop,
+						.header-main-desktop .divider-full-height { height: 80px; }
+						.header-main-mobile,
+						.header-main-mobile .divider-full-height { height: 70px; } .header-bottom { background-repeat: inherit;background-size: inherit;background-attachment: inherit;background-position: inherit; } .header-bottom {  }
+						.header-bottom-desktop,
+						.header-bottom-desktop .divider-full-height { height: 38px; }
+						.header-bottom-mobile,
+						.header-bottom-mobile .divider-full-height { height: 38px; }
