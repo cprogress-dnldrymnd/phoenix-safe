@@ -717,3 +717,20 @@ a.top.arrow {
     font-size: 13px;
   }
 }
+
+
+.anchor-section {
+  &:hover {
+    background-color: var(--primary-color) !important;
+    color: #fff !important;
+
+    h2,
+    i {
+      color: #fff !important;
+    }
+
+    .elementor-icon svg path {
+      stroke: #fff !important;
+    }
+  }
+}

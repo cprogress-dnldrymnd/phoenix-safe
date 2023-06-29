@@ -450,4 +450,13 @@ a.top.arrow {
     border: none !important;
     font-size: 13px; }
 
+.anchor-section:hover {
+  background-color: var(--primary-color) !important;
+  color: #fff !important; }
+  .anchor-section:hover h2,
+  .anchor-section:hover i {
+    color: #fff !important; }
+  .anchor-section:hover .elementor-icon svg path {
+    stroke: #fff !important; }
+
 /*# sourceMappingURL=style.css.map */
