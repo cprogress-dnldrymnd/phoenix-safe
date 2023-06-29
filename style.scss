@@ -720,6 +720,7 @@ a.top.arrow {
 
 
 .anchor-section {
+  cursor: pointer;;
   &:hover {
     background-color: var(--primary-color) !important;
     color: #fff !important;

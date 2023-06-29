@@ -4,8 +4,17 @@ jQuery(document).ready(function ($) {
   elementor_slider();
   latest_post();
   footer_accordion();
+  anchor_section();
 });
 
+function anchor_section() {
+  jQuery('.anchor-section').click(function (e) {
+    $target = jQuery(this).find('.elementor-button-link').attr('href');
+    console.log($target);
+    window.location.href = $target;
+
+  });
+}
 function footer_accordion() {
 
   if (window.innerWidth < 768) {
