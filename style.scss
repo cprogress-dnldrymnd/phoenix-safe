@@ -741,3 +741,12 @@ a.top.arrow {
 html {
   overflow-x: hidden !important;
 }
+
+.archive .content-wrapper,
+.content-wrapper,
+.search .content-wrapper,
+.single-post .content-wrapper,
+.single-product .content-wrapper.content-wrapper-vc-enabled {
+  padding-left: 20px;
+  padding-right: 20px;
+}
