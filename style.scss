@@ -754,4 +754,7 @@ html {
 .inner-intro.woocommerce_inner-intro {
   padding-top: 20px;
   padding-bottom: 20px;
+  .container {
+    max-width: 1000px;
+  }
 }
