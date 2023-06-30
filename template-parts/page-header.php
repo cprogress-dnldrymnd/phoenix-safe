@@ -100,14 +100,13 @@ if (function_exists('ciyashop_is_woocommerce_page') && ciyashop_is_woocommerce_p
 
           if (!is_product()) {
             ?>
-            <div class="col-md-6 text-left">
-              dsds
+            <div class="col-md-12 text-center">
               <?php get_template_part('template-parts/page-header/title'); ?>
             </div>
             <?php
           }
           ?>
-          <div class="<?php echo esc_attr($woo_intro_class); ?>">
+          <div class="col-md-12 text-center">
             <?php get_template_part('template-parts/page-header/breadcrumb'); ?>
           </div>
 
