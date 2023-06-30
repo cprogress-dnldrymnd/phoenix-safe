@@ -378,8 +378,7 @@ a.top.arrow {
     height: 100%; }
     .newsletter .wpcf7 .form-group p {
       height: 100%;
-      margin-bottom: 0;
-      color: var(--secondary-color); }
+      margin-bottom: 0; }
       .newsletter .wpcf7 .form-group p input {
         height: 100%; }
         @media (max-width: 767px) {
@@ -493,6 +492,8 @@ html {
   padding-bottom: 15px;
   margin-bottom: 40px; }
 
+.wpcf7 p {
+  color: var(--secondary-color); }
 .wpcf7 select {
   width: 100%;
   padding: 0 15px;
