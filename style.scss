@@ -769,3 +769,9 @@ html {
     max-width: 1000px;
   }
 }
+
+.woocommerce-products-header {
+  .term-description {
+    display: none !important;
+  }
+}
