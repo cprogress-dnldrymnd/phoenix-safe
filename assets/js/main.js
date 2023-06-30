@@ -27,10 +27,11 @@ function footer_accordion() {
 }
 
 function latest_post() {
-  jQuery('.latest-post-item').each(function (index, element) {
-    jQuery(this).find('.blog-title').appendTo(jQuery(this).find('.latest-post-image'));
-
-  });
+  if (window.innerWidth > 991) {
+    jQuery('.latest-post-item').each(function (index, element) {
+      jQuery(this).find('.blog-title').appendTo(jQuery(this).find('.latest-post-image'));
+    });
+  }
 }
 
 function elementor_slider() {
