@@ -504,7 +504,8 @@ html {
   -moz-border-radius: 3px;
   border-radius: 3px;
   color: #969696;
-  font-size: 14px; }
+  font-size: 14px;
+  border: 1px solid #e5e5e5; }
 .wpcf7 .wpcf7-submit {
   line-height: 1 !important; }
   .wpcf7 .wpcf7-submit.btn-secondary {
