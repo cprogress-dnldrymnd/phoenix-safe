@@ -603,6 +603,7 @@ a.top.arrow {
         height: 100%;
         margin-bottom: 0;
         color: var(--secondary-color);
+
         input {
           height: 100%;
 
@@ -781,5 +782,17 @@ html {
     border-bottom: 2px solid var(--secondary-color);
     padding-bottom: 15px;
     margin-bottom: 40px;
+  }
+}
+
+.wpcf7 {
+  .wpcf7-submit {
+    line-height: 1 !important;
+    &.btn-secondary {
+      background-color: var(--secondary-color) !important;
+      &:hover {
+        background-color: var(--primary-color) !important;
+      }
+    }
   }
 }
