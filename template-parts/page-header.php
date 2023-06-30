@@ -110,9 +110,9 @@ if (function_exists('ciyashop_is_woocommerce_page') && ciyashop_is_woocommerce_p
           }
           ?>
           <?php if (is_product_category()) { ?>
+
             <?php
-            $current_cat = get_queried_object();
-            echo $current_cat->name;
+            echo term_description(get_the_ID());
             ?>
             <div class="col-md-12 text-center">
 
