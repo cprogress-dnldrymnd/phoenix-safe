@@ -101,6 +101,7 @@ if (function_exists('ciyashop_is_woocommerce_page') && ciyashop_is_woocommerce_p
           if (!is_product()) {
             ?>
             <div class="col-md-6 text-left">
+              dsds
               <?php get_template_part('template-parts/page-header/title'); ?>
             </div>
             <?php
