@@ -720,7 +720,9 @@ a.top.arrow {
 
 
 .anchor-section {
-  cursor: pointer;;
+  cursor: pointer;
+  ;
+
   &:hover {
     background-color: var(--primary-color) !important;
     color: #fff !important;
@@ -734,4 +736,8 @@ a.top.arrow {
       stroke: #fff !important;
     }
   }
+}
+
+html {
+  overflow-x: hidden !important;
 }

@@ -461,4 +461,7 @@ a.top.arrow {
     .anchor-section:hover .elementor-icon svg path {
       stroke: #fff !important; }
 
+html {
+  overflow-x: hidden !important; }
+
 /*# sourceMappingURL=style.css.map */
