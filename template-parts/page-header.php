@@ -113,12 +113,9 @@ if (function_exists('ciyashop_is_woocommerce_page') && ciyashop_is_woocommerce_p
 
             <?php
             $term = get_queried_object();
-
-            var_dump($term);
-            echo term_description(get_the_ID());
             ?>
             <div class="col-md-12 text-center">
-
+              <?= wpautop( $term->description ) ?>
             </div>
 
           <?php } ?>
