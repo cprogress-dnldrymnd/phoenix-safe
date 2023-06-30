@@ -602,7 +602,7 @@ a.top.arrow {
       p {
         height: 100%;
         margin-bottom: 0;
-
+        color: var(--secondary-color);
         input {
           height: 100%;
 
@@ -773,5 +773,11 @@ html {
 .woocommerce-products-header {
   .term-description {
     display: none !important;
+  }
+}
+
+.form-box {
+  h3 {
+    border-bottom: 2px solid var(--#3B3B3B);
   }
 }

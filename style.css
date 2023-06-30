@@ -378,7 +378,8 @@ a.top.arrow {
     height: 100%; }
     .newsletter .wpcf7 .form-group p {
       height: 100%;
-      margin-bottom: 0; }
+      margin-bottom: 0;
+      color: var(--secondary-color); }
       .newsletter .wpcf7 .form-group p input {
         height: 100%; }
         @media (max-width: 767px) {
@@ -486,5 +487,8 @@ html {
 
 .woocommerce-products-header .term-description {
   display: none !important; }
+
+.form-box h3 {
+  border-bottom: 2px solid var(--#3B3B3B); }
 
 /*# sourceMappingURL=style.css.map */
