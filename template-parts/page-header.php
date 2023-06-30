@@ -90,6 +90,9 @@ if (function_exists('ciyashop_is_woocommerce_page') && ciyashop_is_woocommerce_p
     <div class="woocommerce_inner-intro inner-intro">
       <div class="container">
         <div class="row woocommerce_intro-title intro-title align-items-center">
+          <div class="col-md-12 text-center">
+            <?php get_template_part('template-parts/page-header/breadcrumb'); ?>
+          </div>
           <?php
           /**
            * Fires before title.
@@ -106,9 +109,7 @@ if (function_exists('ciyashop_is_woocommerce_page') && ciyashop_is_woocommerce_p
             <?php
           }
           ?>
-          <div class="col-md-12 text-center">
-            <?php get_template_part('template-parts/page-header/breadcrumb'); ?>
-          </div>
+
 
         </div>
       </div>
