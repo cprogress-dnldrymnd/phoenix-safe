@@ -537,4 +537,8 @@ ul#resources {
       height: 100%;
       object-fit: cover; }
 
+.resource-type li.active a {
+  color: var(--black-color);
+  text-decoration: underline; }
+
 /*# sourceMappingURL=style.css.map */

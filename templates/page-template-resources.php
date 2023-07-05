@@ -102,7 +102,7 @@ while (have_posts()) {
 
 							</h4>
 
-							<ul class="list-unstyled">
+							<ul class="list-unstyled resource-type">
 
 								<li class="<?= !(isset($_GET['resource_type'])) ? 'active' : '' ?>">
 									<a href="">
