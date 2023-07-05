@@ -153,7 +153,9 @@ while (have_posts()) {
 								<ul class="row" id="resources">
 
 									<?php if ($resources_array) { ?>
-
+										<pre>
+											<?php var_dump($resources_array) ?>
+										</pre>
 										<?php foreach ($resources_array as $resource_val) { ?>
 
 											<?php
