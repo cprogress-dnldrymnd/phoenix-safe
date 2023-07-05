@@ -32,9 +32,9 @@ function woo_resources_tab_content()
     }
   }
   ?>
-  <div class="woocommerce">
+  <div class="resources-holder">
 
-    <ul class="products columns-3 resources" id="resources">
+    <ul class="row" id="resources">
 
       <?php if ($resources_array) { ?>
 
@@ -51,7 +51,7 @@ function woo_resources_tab_content()
           ?>
 
           <li
-            class="product type-product post-15169 status-publish first instock product_cat-rubber has-post-thumbnail shipping-taxable purchasable product-type-simple">
+            class="col-md-4">
 
             <a href="<?= wp_get_attachment_url( $resource_file ) ?>" target="_blank"
               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
@@ -135,7 +135,7 @@ function woo_resources_tab_content()
       <?php }
       else { ?>
 
-        <li class="no-resource">
+        <li class="no-resource col-md-4">
 
           <h2>No resources found</h2>
 
