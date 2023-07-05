@@ -821,8 +821,21 @@ ul#resources {
 
   .inner {
     border: 1px solid #e5e5e5;
+
     .bottom-box {
       padding: 2rem;
+
+      h3 {
+        line-height: 1.4;
+        font-size: 16px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+
+      .resource-btn {
+        font-weight: bold;
+      }
     }
   }
 

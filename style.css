@@ -519,6 +519,13 @@ ul#resources {
     border: 1px solid #e5e5e5; }
     ul#resources .inner .bottom-box {
       padding: 2rem; }
+      ul#resources .inner .bottom-box h3 {
+        line-height: 1.4;
+        font-size: 16px; }
+      ul#resources .inner .bottom-box h2 {
+        font-size: 20px; }
+      ul#resources .inner .bottom-box .resource-btn {
+        font-weight: bold; }
   ul#resources .image-box {
     padding: 40%;
     position: relative; }
