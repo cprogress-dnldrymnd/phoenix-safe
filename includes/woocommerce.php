@@ -62,7 +62,7 @@ function woo_resources_tab_content()
               </div>
 
               <div class="heading-box">
-                <?= $resource_product ?>
+                <h2><?= $resource_product ?></h2>
               </div>
               <div class="title-box">
                 <h3>
