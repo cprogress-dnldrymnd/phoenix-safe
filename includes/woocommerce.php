@@ -62,16 +62,16 @@ function woo_resources_tab_content()
               </div>
 
               <div class="heading-box">
-                <h2><?= $resource_product ?></h2>
-              </div>
-              <div class="title-box">
-                <h3>
+                <h2><?= $resource_product ?>trydus-btn</h2>
+                    </div>
+                    <div class="title-box">
+                      <h3>
                   <?= $resource_title ?>
                 </h3>
               </div>
             </a>
 
-            <a class="trydus-btn d-inline-flex align-items-center disable-default-hover-no"
+            <a class="d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between"
               href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank">
               <?php
               if ($resource_type == 'Brochure') {

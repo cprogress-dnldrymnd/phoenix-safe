@@ -514,7 +514,7 @@ html {
       background-color: var(--primary-color) !important; }
 
 ul#resources .image-box {
-  padding: 30%;
+  padding: 40%;
   position: relative; }
   ul#resources .image-box img {
     position: absolute;
