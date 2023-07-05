@@ -71,7 +71,7 @@ function woo_resources_tab_content()
                     </h2>
                   </div>
 
-                  <span class="d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+                  <span class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
                     <?php
                     if ($resource_type == 'Brochure') {
 
