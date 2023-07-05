@@ -50,7 +50,7 @@ function woo_resources_tab_content()
 
           ?>
 
-          <li class="col-md-4">
+          <li class="col-md-3">
 
             <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
@@ -103,7 +103,7 @@ function woo_resources_tab_content()
       <?php }
       else { ?>
 
-        <li class="no-resource col-md-4">
+        <li class="no-resource col-md-12">
 
           <h2>No resources found</h2>
 
