@@ -101,7 +101,7 @@ while (have_posts()) {
 							<ul class="list-unstyled resource-type">
 
 								<li class="<?= !(isset($_GET['resource_type'])) ? 'active' : '' ?>">
-									<a href="/">
+									<a href="./">
 										All
 									</a>
 
