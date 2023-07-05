@@ -20,15 +20,15 @@ function woo_resources_tab($tabs)
 }
 function woo_resources_tab_content()
 {
-  if (have_rows('resources')) {
-    while (have_rows('resources')) {
-      the_row();
+  $resources = carbon_get_the_post_meta('resources');
+  if ($resources) {
+    foreach ($resources as $resource) {
       $resources_array[] = array(
         'resource_product'   => get_the_title(),
-        'resource_type'      => get_sub_field('resource_type'),
-        'resource_title'     => get_sub_field('resource_title'),
-        'resource_thumbnail' => get_sub_field('resource_thumbnail'),
-        'resource_file'      => get_sub_field('resource_file'),
+        'resource_type'      => $resource['resource_type'],
+        'resource_title'     => $resource['resource_title'],
+        'resource_thumbnail' => $resource['resource_thumbnail'],
+        'resource_file'      => $resource['resource_file'],
       );
     }
   }
