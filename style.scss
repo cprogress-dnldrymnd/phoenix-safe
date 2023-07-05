@@ -818,9 +818,18 @@ html {
 
 ul#resources {
   list-style: none;
-  .image-box{
+
+  .inner {
+    border: 1px solid #e5e5e5;
+    .bottom-box {
+      padding: 2rem;
+    }
+  }
+
+  .image-box {
     padding: 40%;
     position: relative;
+
     img {
       position: absolute;
       left: 0;

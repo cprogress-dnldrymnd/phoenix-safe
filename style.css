@@ -515,6 +515,10 @@ html {
 
 ul#resources {
   list-style: none; }
+  ul#resources .inner {
+    border: 1px solid #e5e5e5; }
+    ul#resources .inner .bottom-box {
+      padding: 2rem; }
   ul#resources .image-box {
     padding: 40%;
     position: relative; }

@@ -61,34 +61,35 @@ function woo_resources_tab_content()
 
                 </div>
 
-                <div class="heading-box">
-                  <h2><?= $resource_product ?>trydus-btn</h2>
+                <div class="bottom-box">
+                  <div class="heading-box">
+                  <h2><?= $resource_product ?></h2>
                 </div>
                 <div class="title-box">
                   <h3>
                     <?= $resource_title ?>
                   </h3>
                 </div>
-              </a>
 
-              <a class="d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between"
-                href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank">
-                <?php
-                if ($resource_type == 'Brochure') {
+                <span class="d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+                  <?php
+                  if ($resource_type == 'Brochure') {
 
-                  echo 'READ THE BROCHURE';
+                    echo 'READ THE BROCHURE';
 
-                }
-                else if ($resource_type == 'Technical Data') {
+                  }
+                  else if ($resource_type == 'Technical Data') {
 
-                  echo 'READ THE SPEC';
+                    echo 'READ THE SPEC';
 
-                }
-                else {
-                  echo 'WATCH THE VIDEO';
-                }
-                ?>
-                <span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
+                  }
+                  else {
+                    echo 'WATCH THE VIDEO';
+                  }
+                  ?>
+                  <span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
+                </span>
+                </div>
               </a>
             </div>
 
