@@ -32,7 +32,7 @@ function woo_resources_tab_content()
     }
   }
   ?>
-  <div class="resources-holder">
+  <div class="resource-holder">
 
     <ul class="row" id="resources">
 
@@ -41,13 +41,11 @@ function woo_resources_tab_content()
         <?php foreach ($resources_array as $resource_val) { ?>
 
           <?php
-
           $resource_product = $resource_val['resource_product'];
           $resource_type = $resource_val['resource_type'];
           $resource_title = $resource_val['resource_title'];
           $resource_thumbnail = $resource_val['resource_thumbnail'];
           $resource_file = $resource_val['resource_file'];
-
           ?>
 
           <li class="col-md-3">

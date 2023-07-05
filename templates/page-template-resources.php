@@ -66,10 +66,6 @@ while (have_posts()) {
 			wp_reset_postdata();
 		}
 	}
-	//echo '<pre>';
-	//var_dump($resources_array);
-	//echo '</pre>';
-
 	?>
 
 	<div class="trydus-woocommerce-page woocommerce">
