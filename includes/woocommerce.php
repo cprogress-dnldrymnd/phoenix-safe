@@ -50,10 +50,9 @@ function woo_resources_tab_content()
 
           ?>
 
-          <li
-            class="col-md-4">
+          <li class="col-md-4">
 
-            <a href="<?= wp_get_attachment_url( $resource_file ) ?>" target="_blank"
+            <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 
               <div class="product-thumb-wrapper">
@@ -143,11 +142,47 @@ function woo_resources_tab_content()
 
       <?php } ?>
 
-
-
     </ul>
 
   </div>
+  <script>
+    function forceDownload(link) {
+
+      var url = link.getAttribute("data-href");
+
+      var fileName = link.getAttribute("download");
+
+      var xhr = new XMLHttpRequest();
+
+      xhr.open("GET", url, true);
+
+      xhr.responseType = "blob";
+
+      xhr.onload = function () {
+
+        var urlCreator = window.URL || window.webkitURL;
+
+        var imageUrl = urlCreator.createObjectURL(this.response);
+
+        var tag = document.createElement('a');
+
+        tag.href = imageUrl;
+
+        tag.download = fileName;
+
+        document.body.appendChild(tag);
+
+        tag.click();
+
+        document.body.removeChild(tag);
+
+      }
+
+      xhr.send();
+
+    }
+
+  </script>
   <?php
 
 }
