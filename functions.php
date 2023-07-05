@@ -120,8 +120,6 @@ function get_resource_image($resource_type, $resource_thumbnail)
 {
 
 
-
-
 	if ($resource_type == 'Brochure') {
 
 		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-3.jpg"/>';
