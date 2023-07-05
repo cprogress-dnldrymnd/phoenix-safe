@@ -108,7 +108,7 @@ function woo_resources_tab_content()
             </a>
 
             <a class="trydus-btn  d-inline-flex align-items-center elementor-animation- disable-default-hover-no"
-              href="<?= $resource_file['url'] ?>" target="_blank">
+              href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank">
 
               <?php
               if ($resource_type == 'Brochure') {
