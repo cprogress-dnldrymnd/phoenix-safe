@@ -28,5 +28,6 @@ Container::make('post_meta', 'Resources')
 
           )
         )
+        ->set_header_template('<%- resource_title %>')
     )
   );
