@@ -105,7 +105,48 @@ function tissue_paper_register_custom_fields()
 	require_once('includes/post-meta.php');
 }
 
+require_once('includes/woocommerce.php');
 
 
 require_once('includes/ajax.php');
 
+
+/*-----------------------------------------------------------------------------------*/
+
+/* Get resources image
+/*-----------------------------------------------------------------------------------*/
+
+function get_resource_image($resource_type, $resource_thumbnail)
+{
+
+
+
+
+	if ($resource_type == 'Brochure') {
+
+		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-3.jpg"/>';
+
+	}
+	else if ($resource_type == 'Technical Data') {
+
+		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-1.jpg"/>';
+
+
+	}
+	else {
+		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-2.jpg"/>';
+	}
+
+	if ($resource_thumbnail) {
+
+		$return = '<img src="' . wp_get_attachment_image_url($resource_thumbnail, 'large') . '"/>';
+
+	}
+	else {
+		$return = $thumb;
+	}
+
+
+	return $return;
+
+}
