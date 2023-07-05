@@ -154,7 +154,7 @@ while (have_posts()) {
 
 							<div class="results-holder">
 
-								<ul class="products columns-3 resources" id="resources">
+								<ul class="row" id="resources">
 
 									<?php if ($resources_array) { ?>
 
@@ -170,83 +170,49 @@ while (have_posts()) {
 
 											?>
 
-											<li
-												class="product type-product post-15169 status-publish first instock product_cat-rubber has-post-thumbnail shipping-taxable purchasable product-type-simple">
+											<li class="col-md-3">
+												<div class="inner">
+													<a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
+														class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 
-												<a href="<?= $resource_file['url'] ?>" target="_blank"
-													class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+														<div class="image-box">
 
-													<div class="product-thumb-wrapper">
+															<?= get_resource_image($resource_type, $resource_thumbnail) ?>
 
-														<?= get_resource_image($resource_type, $resource_thumbnail) ?>
+														</div>
 
-													</div>
+														<div class="bottom-box">
+															<div class="heading-box">
+																<h3><?= $resource_product ?></h3>
+															</div>
+															<div class="title-box">
+																<h2>
+																	<?= $resource_title ?>
+																</h2>
+															</div>
 
-													<h2 class="woocommerce-loop-product__title">
+															<span
+																class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+																<?php
+																if ($resource_type == 'Brochure') {
 
-														<?= $resource_product ?>
+																	echo 'READ THE BROCHURE';
 
-														<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-															xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 477.867 477.867"
-															style="enable-background:new 0 0 477.867 477.867;" xml:space="preserve">
-															<g>
-																<g>
-																	<path
-																		d="M409.6,153.6h-85.333c-9.426,0-17.067,7.641-17.067,17.067s7.641,17.067,17.067,17.067H409.6c9.426,0,17.067,7.641,17.067,17.067v221.867c0,9.426-7.641,17.067-17.067,17.067H68.267c-9.426,0-17.067-7.641-17.067-17.067V204.8c0-9.426,7.641-17.067,17.067-17.067H153.6c9.426,0,17.067-7.641,17.067-17.067S163.026,153.6,153.6,153.6H68.267c-28.277,0-51.2,22.923-51.2,51.2v221.867c0,28.277,22.923,51.2,51.2,51.2H409.6c28.277,0,51.2-22.923,51.2-51.2V204.8C460.8,176.523,437.877,153.6,409.6,153.6z" />
-																</g>
-															</g>
-															<g>
-																<g>
-																	<path
-																		d="M335.947,243.934c-6.614-6.387-17.099-6.387-23.712,0L256,300.134V17.067C256,7.641,248.359,0,238.933,0s-17.067,7.641-17.067,17.067v283.068l-56.201-56.201c-6.78-6.548-17.584-6.361-24.132,0.419c-6.388,6.614-6.388,17.1,0,23.713l85.333,85.333c6.657,6.673,17.463,6.687,24.136,0.03c0.01-0.01,0.02-0.02,0.031-0.03l85.333-85.333C342.915,261.286,342.727,250.482,335.947,243.934z" />
-																</g>
-															</g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-															<g></g>
-														</svg>
+																}
+																else if ($resource_type == 'Technical Data') {
 
-													</h2>
-													<p>
+																	echo 'READ THE SPEC';
 
-														<?= $resource_title ?>
-
-													</p>
-
-												</a>
-
-												<a class="trydus-btn  d-inline-flex align-items-center elementor-animation- disable-default-hover-no"
-													href="<?= $resource_file['url'] ?>" target="_blank">
-
-													<?php
-													if ($resource_type == 'Brochure') {
-
-														echo 'READ THE BROCHURE';
-
-													}
-													else if ($resource_type == 'Technical Data') {
-
-														echo 'READ THE SPEC';
-
-													}
-													else {
-														echo 'WATCH THE VIDEO';
-													}
-													?>
-													<span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
-												</a>
+																}
+																else {
+																	echo 'WATCH THE VIDEO';
+																}
+																?>
+																<span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
+															</span>
+														</div>
+													</a>
+												</div>
 
 											</li>
 
@@ -255,7 +221,7 @@ while (have_posts()) {
 									<?php }
 									else { ?>
 
-										<li class="no-resource">
+										<li class="no-resource col-md-12">
 
 											<h2>No resources found</h2>
 
