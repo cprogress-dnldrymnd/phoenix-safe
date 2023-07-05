@@ -55,29 +55,24 @@ function woo_resources_tab_content()
             <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
               class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 
-              <div class="product-thumb-wrapper">
+              <div class="image-box">
 
                 <?= get_resource_image($resource_type, $resource_thumbnail) ?>
 
               </div>
 
-              <h2 class="woocommerce-loop-product__title">
-
+              <div class="heading-box">
                 <?= $resource_product ?>
-
-          
-              </h2>
-              <p>
-
-                <?= $resource_title ?>
-
-              </p>
-
+              </div>
+              <div class="title-box">
+                <h3>
+                  <?= $resource_title ?>
+                </h3>
+              </div>
             </a>
 
-            <a class="trydus-btn  d-inline-flex align-items-center elementor-animation- disable-default-hover-no"
+            <a class="trydus-btn d-inline-flex align-items-center disable-default-hover-no"
               href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank">
-
               <?php
               if ($resource_type == 'Brochure') {
 
