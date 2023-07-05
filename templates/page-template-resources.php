@@ -170,7 +170,7 @@ while (have_posts()) {
 
 											?>
 
-											<li class="col-md-3">
+											<li class="col-md-4">
 												<div class="inner">
 													<a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
 														class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
