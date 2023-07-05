@@ -334,7 +334,6 @@ while (have_posts()) {
 
 				search: search,
 
-				application: '<?= $application ?>',
 
 			},
 
