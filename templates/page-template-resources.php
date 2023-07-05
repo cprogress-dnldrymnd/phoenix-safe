@@ -269,8 +269,6 @@ while (have_posts()) {
 
 								<div class="pagination">
 
-									<?php pf_pagination($the_query); ?>
-
 								</div>
 
 							</div>
