@@ -82,7 +82,7 @@ while (have_posts()) {
 
 					<form role="search" method="get" class="woocommerce-product-search" id="resources_form">
 
-						<div id="woocommerce_product_search-4" class="trydus-wc-widget col widget woocommerce widget_product_search">
+						<div class="trydus-wc-widget  widget woocommerce widget_product_search">
 							<h4 class="widget-title">Search</h4>
 
 
