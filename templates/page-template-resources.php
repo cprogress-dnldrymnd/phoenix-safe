@@ -153,17 +153,7 @@ while (have_posts()) {
 								<ul class="row" id="resources">
 
 									<?php if ($resources_array) { ?>
-										<pre>
-															<?php
-
-															$input = preg_quote('bl', '~'); // don't forget to quote input string!
-													
-															$result = preg_grep('~' . $input . '~', $resources_array);
-
-															var_dump($result);
-
-															?>
-														</pre>
+								
 										<?php foreach ($resources_array as $resource_val) { ?>
 
 											<?php
