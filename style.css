@@ -513,4 +513,96 @@ html {
     .wpcf7 .wpcf7-submit.btn-secondary:hover {
       background-color: var(--primary-color) !important; }
 
+ul#resources li {
+  margin: 0;
+  margin: 0;
+  padding: 0 3.8% 2.992em 0;
+    /* .woocommerce-loop-product__title  {
+			&:after {
+				content: '';
+				background-image: url(./assets/images/download-icon.png);
+				background-size: contain;
+				background-position: center;
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				background-repeat: no-repeat;
+				margin-left: 20px;
+			}
+		} */ }
+  ul#resources li.no-resource {
+    width: 100% !important;
+    text-align: center;
+    margin-top: 100px; }
+  ul#resources li a.trydus-btn {
+    width: 100%;
+    font-weight: 600;
+    letter-spacing: 3.06px; }
+    ul#resources li a.trydus-btn .btn-icon {
+      margin-left: 1rem; }
+  ul#resources li a.trydus-btn {
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    justify-content: space-between; }
+    ul#resources li a.trydus-btn h2 {
+      overflow: hidden;
+      padding-right: 0 !important;
+      text-align: left; }
+      ul#resources li a.trydus-btn h2 span.download {
+        position: absolute;
+        z-index: 3;
+        width: 100%;
+        left: 0;
+        height: 100%;
+        text-align: left;
+        padding-left: 10px;
+        background-color: #0D3E90;
+        color: #ffff;
+        letter-spacing: 2px;
+        bottom: -100%;
+        transition: 300ms; }
+        ul#resources li a.trydus-btn h2 span.download svg {
+          position: relative;
+          transform: none;
+          top: 0;
+          float: right;
+          margin-right: 10px;
+          margin-top: 5px; }
+          ul#resources li a.trydus-btn h2 span.download svg * {
+            fill: #fff; }
+    ul#resources li a.trydus-btn:hover h2 span.download {
+      bottom: 0; }
+    ul#resources li a.trydus-btn:hover svg * {
+      fill: #0D3E90; }
+  ul#resources li p {
+    order: 3;
+    text-align: left;
+    width: 100%;
+    color: #787878; }
+  ul#resources li .product-thumb-wrapper {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0;
+    padding: 50%;
+    height: auto; }
+    ul#resources li .product-thumb-wrapper img {
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
+      height: 100%; }
+    ul#resources li .product-thumb-wrapper .overlay {
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.29);
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%; }
+  @media (max-width: 991px) {
+    ul#resources li {
+      width: 100% !important; } }
+  @media (max-width: 991px) {
+    ul#resources li {
+      width: 100% !important; } }
+
 /*# sourceMappingURL=style.css.map */

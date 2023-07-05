@@ -823,13 +823,16 @@ ul#resources {
       text-align: center;
       margin-top: 100px;
     }
+
     margin: 0;
     margin: 0;
     padding: 0 3.8% 2.992em 0;
+
     a.trydus-btn {
       width: 100%;
       font-weight: 600;
       letter-spacing: 3.06px;
+
       .btn-icon {
         margin-left: 1rem;
       }
@@ -858,11 +861,11 @@ ul#resources {
           color: #ffff;
           letter-spacing: 2px;
           bottom: -100%;
-          @include transition(300ms);
+          transition: 300ms;
 
           svg {
             position: relative;
-            @include transform(none);
+            transform: none;
             top: 0;
             float: right;
             margin-right: 10px;
