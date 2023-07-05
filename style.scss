@@ -865,3 +865,35 @@ ul#resources {
     }
   }
 }
+
+#results {
+  .results-holder {
+    .loading {
+      text-align: center;
+      font-size: 55px;
+      margin-top: 100px;
+      animation-name: spin;
+      animation-duration: 3000ms;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+form#resources_form {
+  &.searching {
+    label {
+      pointer-events: none;
+    }
+  }
+}
