@@ -20,14 +20,15 @@ Container::make('post_meta', 'Resources')
                   'Technical Data' => 'Technical Data',
                   'Videos' => 'Videos',
                 )
-              ),
-            Field::make('text', 'resource_title', __('Resource Title')),
-            Field::make('image', 'resource_thumbnail', __('Resource Thumbnail')),
-            Field::make('file', 'resource_file', __('Resource File')),
+              )->set_width(25),
+            Field::make('text', 'resource_title', __('Resource Title'))->set_width(25),
+            Field::make('image', 'resource_thumbnail', __('Resource Thumbnail'))->set_width(25),
+            Field::make('file', 'resource_file', __('Resource File'))->set_width(25),
 
 
           )
         )
         ->set_header_template('<%- resource_title %>')
+        ->set_layout('tabbed-vertical')
     )
   );
