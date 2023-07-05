@@ -51,45 +51,46 @@ function woo_resources_tab_content()
           ?>
 
           <li class="col-md-3">
+            <div class="inner">
+              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
+                class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 
-            <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
-              class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+                <div class="image-box">
 
-              <div class="image-box">
+                  <?= get_resource_image($resource_type, $resource_thumbnail) ?>
 
-                <?= get_resource_image($resource_type, $resource_thumbnail) ?>
+                </div>
 
-              </div>
+                <div class="heading-box">
+                  <h2><?= $resource_product ?>trydus-btn</h2>
+                </div>
+                <div class="title-box">
+                  <h3>
+                    <?= $resource_title ?>
+                  </h3>
+                </div>
+              </a>
 
-              <div class="heading-box">
-                <h2><?= $resource_product ?>trydus-btn</h2>
-                    </div>
-                    <div class="title-box">
-                      <h3>
-                  <?= $resource_title ?>
-                </h3>
-              </div>
-            </a>
+              <a class="d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between"
+                href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank">
+                <?php
+                if ($resource_type == 'Brochure') {
 
-            <a class="d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between"
-              href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank">
-              <?php
-              if ($resource_type == 'Brochure') {
+                  echo 'READ THE BROCHURE';
 
-                echo 'READ THE BROCHURE';
+                }
+                else if ($resource_type == 'Technical Data') {
 
-              }
-              else if ($resource_type == 'Technical Data') {
+                  echo 'READ THE SPEC';
 
-                echo 'READ THE SPEC';
-
-              }
-              else {
-                echo 'WATCH THE VIDEO';
-              }
-              ?>
-              <span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
-            </a>
+                }
+                else {
+                  echo 'WATCH THE VIDEO';
+                }
+                ?>
+                <span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
+              </a>
+            </div>
 
           </li>
 
