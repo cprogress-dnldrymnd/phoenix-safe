@@ -95,4 +95,15 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Register Carbonfields
+/*-----------------------------------------------------------------------------------*/
+add_action('carbon_fields_register_fields', 'tissue_paper_register_custom_fields');
+function tissue_paper_register_custom_fields()
+{
+	require_once('includes/post-meta.php');
+}
+
 require_once('includes/ajax.php');
+
