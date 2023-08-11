@@ -206,4 +206,4 @@ function action_woocommerce_before_add_to_cart_form()
 <?php
 }
 
-add_action('woocommerce_before_variations_form', 'action_woocommerce_before_add_to_cart_form');
+add_action('woocommerce_before_add_to_cart_form', 'action_woocommerce_before_add_to_cart_form', 99);
