@@ -197,3 +197,13 @@ function woo_stockists_tab_content()
 
 <?php
 }
+
+
+function action_woocommerce_product_meta_start()
+{
+  ?>
+sdsdsdsds
+  <?php
+}
+
+add_action('woocommerce_product_meta_start', 'action_woocommerce_product_meta_start');
