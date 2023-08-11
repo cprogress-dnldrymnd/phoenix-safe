@@ -11,17 +11,16 @@
 $font-url: "./assets/fonts/" !default;
 
 @mixin font-face($fontFamily, $path, $fileName, $fontStyle: normal, $fontWeight: false) {
-
-  @each $name,
-  $weight in $fontWeight {
+  @each $name, $weight in $fontWeight {
     @font-face {
       font-family: $fontFamily;
       src: url("#{$path + $fileName}-#{$name}.eot");
-      src: url("#{$path + $fileName}-#{$name}.eot?#iefix") format("embedded-opentype"),
-      url("#{$path + $fileName}-#{$name}.woff2") format("woff2"),
-      url("#{$path + $fileName}-#{$name}.woff") format("woff"),
-      url("#{$path + $fileName}-#{$name}.ttf") format("truetype"),
-      url("#{$path + $fileName}-#{$name}.svg##{$fileName}-#{$name}") format("svg");
+      src:
+        url("#{$path + $fileName}-#{$name}.eot?#iefix") format("embedded-opentype"),
+        url("#{$path + $fileName}-#{$name}.woff2") format("woff2"),
+        url("#{$path + $fileName}-#{$name}.woff") format("woff"),
+        url("#{$path + $fileName}-#{$name}.ttf") format("truetype"),
+        url("#{$path + $fileName}-#{$name}.svg##{$fileName}-#{$name}") format("svg");
 
       font-weight: $weight;
       font-style: $fontStyle;
@@ -36,14 +35,13 @@ $hknova: (
   "Medium": 500,
   "Semibold": 600,
   "Bold": 700,
-  "Extrabold": 800,
+  "Extrabold": 800
 );
-
 
 @include font-face("HKNovaR", $font-url + "hknova/", "HKNovaR", normal, $hknova);
 
 body {
-  font-family: 'HKNovaR', 'sans-serif';
+  font-family: "HKNovaR", "sans-serif";
   margin-bottom: 0 !important;
 
   h1,
@@ -58,11 +56,11 @@ body {
 }
 
 :root {
-  --primary-color: #CB2A3F;
-  --secondary-color: #3B3B3B;
+  --primary-color: #cb2a3f;
+  --secondary-color: #3b3b3b;
   --black-color: #000;
   --white-color: #fff;
-  --light-gray: #EFF2F1;
+  --light-gray: #eff2f1;
 }
 
 .ciyashop-site-layout-fullwidth:not(.page-template-faq) .content-wrapper .container {
@@ -73,7 +71,7 @@ body {
 
 body:not(.elementor-editor-active) {
   .elementor-swiper-slider {
-    >div {
+    > div {
       flex-direction: row !important;
       flex-wrap: nowrap !important;
 
@@ -85,7 +83,7 @@ body:not(.elementor-editor-active) {
   }
 
   .elementor-swiper-slider-js-vertical {
-    >div {
+    > div {
       flex-direction: column !important;
       flex-wrap: nowrap !important;
 
@@ -95,7 +93,6 @@ body:not(.elementor-editor-active) {
       }
     }
   }
-
 
   .swiper-pagination-elementor {
     display: flex;
@@ -117,7 +114,6 @@ body:not(.elementor-editor-active) {
     }
   }
 
-
   .swiper-light {
     .swiper-pagination-elementor {
       .swiper-pagination-bullet {
@@ -132,15 +128,13 @@ body:not(.elementor-editor-active) {
   }
 }
 
-
-
 body.elementor-editor-active {
   .the-content.d-none {
     display: block !important;
   }
 
   .elementor-swiper-slider {
-    >div {
+    > div {
       flex-direction: column !important;
       flex-wrap: wrap;
 
@@ -151,8 +145,8 @@ body.elementor-editor-active {
     }
 
     .swiper-slide {
-      >.e-con-inner:before {
-        content: 'Swiper Slide';
+      > .e-con-inner:before {
+        content: "Swiper Slide";
         display: block;
         padding-left: 30px;
         font-size: 12px;
@@ -166,8 +160,8 @@ body.elementor-editor-active {
       }
     }
 
-    >.e-con-inner:before {
-      content: 'Swiper';
+    > .e-con-inner:before {
+      content: "Swiper";
       display: block;
       padding-left: 30px;
       font-size: 12px;
@@ -204,18 +198,14 @@ body.elementor-editor-active {
     .swiper-pagination {
       position: static;
 
-      @media(min-width: 992px) {
+      @media (min-width: 992px) {
         justify-content: flex-start !important;
       }
-
     }
   }
-
 }
 
-
 .heading-no-margin {
-
   h1,
   h2,
   h3,
@@ -240,7 +230,7 @@ body.elementor-editor-active {
 .whole-anchor {
   a.elementor-icon {
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -251,7 +241,7 @@ body.elementor-editor-active {
 }
 
 .e-con-ms-auto {
-  >.e-con-inner {
+  > .e-con-inner {
     margin-left: auto !important;
     margin-right: 0 !important;
   }
@@ -261,12 +251,12 @@ body.elementor-editor-active {
   .latest-post-main-inner {
     .row {
       .col-lg-6 {
-        @media(max-width: 1199px) {
+        @media (max-width: 1199px) {
           flex: 0 0 33.333333%;
           width: 33.333333%;
         }
 
-        @media(max-width: 991px) {
+        @media (max-width: 991px) {
           flex: 0 0 50%;
           width: 50%;
 
@@ -305,7 +295,7 @@ body.elementor-editor-active {
             }
           }
 
-          @media(max-width: 1199px) {
+          @media (max-width: 1199px) {
             font-size: 25px;
           }
         }
@@ -333,7 +323,6 @@ body.elementor-editor-active {
           }
         }
       }
-
     }
   }
 }
@@ -390,10 +379,8 @@ body.elementor-editor-active {
 
   &.button-icon-shield {
     a {
-
-
       &:before {
-        content: '';
+        content: "";
         background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20.939" height="25.674" viewBox="0 0 20.939 25.674"> <g id="Group_67" data-name="Group 67" transform="translate(-233 -1692)"> <path id="Icon_feather-shield" data-name="Icon feather-shield" d="M15.47,26.674s9.47-4.735,9.47-11.837V6.551L15.47,3,6,6.551v8.286C6,21.939,15.47,26.674,15.47,26.674Z" transform="translate(228 1690)" fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> <path id="Icon_feather-check" data-name="Icon feather-check" d="M15.029,9,8.822,15.207,6,12.386" transform="translate(232.955 1692.733)" fill="none" stroke="%23fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/> </g></svg>');
         width: 23px;
         height: 23px;
@@ -469,7 +456,7 @@ body.elementor-editor-active {
       }
     }
 
-    @media(min-width: 992px) {
+    @media (min-width: 992px) {
       display: none !important;
     }
   }
@@ -479,7 +466,6 @@ body.elementor-editor-active {
       justify-content: flex-start;
 
       .header-col {
-
         &.header-col-left,
         &.header-col-right {
           -ms-flex: 0 0 auto;
@@ -488,7 +474,6 @@ body.elementor-editor-active {
 
         &.header-col-left {
           margin-right: 3vw;
-
         }
 
         &.header-col-right {
@@ -505,7 +490,7 @@ footer.site-footer {
 
   .footer-widgets-wrapper {
     .footer-widgets {
-      >.row {
+      > .row {
         position: relative;
 
         &:first-child {
@@ -517,20 +502,20 @@ footer.site-footer {
             bottom: 0;
             left: -300px;
             right: -300px;
-            content: '';
+            content: "";
             height: 1px;
             background-color: var(--secondary-color);
           }
 
-          @media(max-width: 991px) {
+          @media (max-width: 991px) {
             margin-bottom: 0;
             padding-bottom: 20px;
           }
         }
 
         &:last-child {
-          [class*='col-'] {
-            @media(max-width: 991px) {
+          [class*="col-"] {
+            @media (max-width: 991px) {
               &:first-child {
                 order: 4;
               }
@@ -546,7 +531,7 @@ footer.site-footer {
       }
     }
 
-    @media(max-width: 991px) {
+    @media (max-width: 991px) {
       padding-bottom: 20px;
     }
   }
@@ -585,7 +570,7 @@ a.top.arrow {
         padding-left: 3px;
         padding-right: 3px;
 
-        @media(max-width: 767px) {
+        @media (max-width: 767px) {
           margin-bottom: 15px;
         }
       }
@@ -606,7 +591,7 @@ a.top.arrow {
         input {
           height: 100%;
 
-          @media(max-width: 767px) {
+          @media (max-width: 767px) {
             padding-top: 10px;
             padding-bottom: 10px;
           }
@@ -620,17 +605,15 @@ a.top.arrow {
       text-transform: initial;
       font-size: 15px;
 
-      @media(max-width: 575px) {
+      @media (max-width: 575px) {
         width: 100%;
       }
     }
-
-
   }
 
   .privacy-text {
     font-size: 12px;
-    color: #B5B5B5;
+    color: #b5b5b5;
 
     p {
       &:last-child {
@@ -648,13 +631,13 @@ a.top.arrow {
 }
 
 .button-fullwidth-sm .elementor-button-link {
-  @media(max-width: 991px) {
+  @media (max-width: 991px) {
     width: 100% !important;
   }
 }
 
 .button-fullwidth-xs .elementor-button-link {
-  @media(max-width: 767px) {
+  @media (max-width: 767px) {
     width: 100% !important;
   }
 }
@@ -663,9 +646,9 @@ a.top.arrow {
   display: none !important;
 }
 
-@media(max-width: 767px) {
+@media (max-width: 767px) {
   .widget.widget_nav_menu {
-    border-bottom: 1px solid rgba(231, 231, 231, .25);
+    border-bottom: 1px solid rgba(231, 231, 231, 0.25);
 
     .widget-title {
       justify-content: space-between;
@@ -676,18 +659,18 @@ a.top.arrow {
         content: "\f054";
         left: 0;
         top: 0;
-        font-family: 'Font Awesome 5 Free';
+        font-family: "Font Awesome 5 Free";
         font-weight: 900;
         font-size: 15px;
         opacity: 1;
-        -webkit-transition: all .2s ease-in-out;
-        -ms-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
         transform: rotate(90deg);
       }
     }
 
-    [class*='menu-'] {
+    [class*="menu-"] {
       max-height: 0;
       overflow: hidden;
       position: relative;
@@ -696,11 +679,10 @@ a.top.arrow {
       ul {
         margin-bottom: 30px;
       }
-
     }
 
     &.open-menu {
-      [class*='menu-'] {
+      [class*="menu-"] {
         max-height: 300px;
       }
     }
@@ -712,17 +694,14 @@ a.top.arrow {
   line-height: 0;
 
   .goog-te-combo.goog-te-combo {
-    font-family: 'HKNovaR', 'sans-serif' !important;
+    font-family: "HKNovaR", "sans-serif" !important;
     border: none !important;
     font-size: 13px;
   }
 }
 
-
 .anchor-section {
   cursor: pointer;
-  ;
-
   &:hover {
     background-color: var(--primary-color) !important;
     color: #fff !important;
@@ -899,7 +878,6 @@ form#resources_form {
   }
 }
 
-
 input[type="date"] {
   width: 100%;
   padding: 0 15px;
@@ -915,4 +893,10 @@ input[type="date"] {
 
 .testimonials .img-circle {
   display: none !important;
+}
+
+.button-group-box-small {
+  a {
+    padding: 15px 20px;
+  }
 }
