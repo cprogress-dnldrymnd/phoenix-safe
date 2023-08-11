@@ -148,3 +148,15 @@ function get_resource_image($resource_type, $resource_thumbnail)
 	return $return;
 
 }
+
+function action_admin_head() {
+	?>
+	<style>
+		#toplevel_page_ciyashop-panel {
+			font-size: 0;
+		}
+	</style>
+	<?php
+}
+
+add_action('admin_head', 'action_admin_head');
