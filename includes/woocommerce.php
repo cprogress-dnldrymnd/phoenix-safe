@@ -199,11 +199,14 @@ function woo_stockists_tab_content()
 }
 
 
-function action_woocommerce_before_add_to_cart_form()
+add_filter('woocommerce_short_description', 'add_text_after_excerpt_single_product', 20, 1);
+function add_text_after_excerpt_single_product($post_excerpt)
 {
-?>
-  sdsdsdsds
-<?php
-}
 
-add_action('woocommerce_before_add_to_cart_form', 'action_woocommerce_before_add_to_cart_form', 99);
+  // Your custom text
+  $post_excerpt .= '<ul class="fancy-bullet-points red">
+    <li>Current Delivery Times: Pink Equine - 4 - 6 Weeks, all other products 4 Weeks</li>
+    </ul>';
+
+  return $post_excerpt;
+}
