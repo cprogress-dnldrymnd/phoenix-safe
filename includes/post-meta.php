@@ -53,3 +53,37 @@ Container::make('post_meta', 'Product Lists')
         ->set_layout('tabbed-vertical')
     )
   );
+
+
+$stockist_fields = array();
+
+
+$args = array(
+  'post_type' => 'stockists',
+  'posts_per_page' => -1
+);
+$the_query = new WP_Query($args);
+if ($the_query->have_posts()) {
+  while ($the_query->have_posts()) {
+    $stockist_fields[] =  Field::make('text', 'stockist_' . get_the_ID(), __(get_the_title()));
+  }
+  wp_reset_postdata();
+}
+
+Container::make('post_meta', 'Product Lists')
+  ->where('post_type', '=', 'products')
+  ->add_fields(
+    array(
+      Field::make('complex', 'products')
+        ->add_fields(
+          array(
+            Field::make('select', 'product', __('Product'))
+              ->set_options(get_posts_details('product')),
+            Field::make('text', 'product_url', __('Product URL'))
+
+          )
+        )
+        ->set_header_template('<%- product %>')
+        ->set_layout('tabbed-vertical')
+    )
+  );
