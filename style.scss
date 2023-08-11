@@ -944,8 +944,8 @@ input[type="date"] {
 
 .document-list {
   .document-item {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     align-items: center;
     .document-icon {
       i {
@@ -961,7 +961,6 @@ input[type="date"] {
       padding-right: 1rem;
     }
     .button-box {
-     
       a {
         padding: 10px;
         border-radius: 5px;
@@ -970,5 +969,17 @@ input[type="date"] {
     &:nth-child(even) {
       background-color: #e9e9e9;
     }
+  }
+}
+
+.documents-page-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  span,
+  a {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
