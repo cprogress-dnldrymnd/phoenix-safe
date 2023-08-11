@@ -622,5 +622,7 @@ input[type="date"] {
   .document-list .document-item .button-box a {
     padding: 10px;
     border-radius: 5px; }
+  .document-list .document-item:nth-child(even) {
+    background-color: #e9e9e9; }
 
 /*# sourceMappingURL=style.css.map */
