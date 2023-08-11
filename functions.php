@@ -112,6 +112,9 @@ require_once('includes/woocommerce.php');
 
 require_once('includes/ajax.php');
 
+require_once('includes/svg.php');
+
+
 
 /*-----------------------------------------------------------------------------------*/
 
