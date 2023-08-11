@@ -171,6 +171,7 @@ function action_admin_head()
 
 			#wp-admin-bar-ciyashop-options>a {
 				font-size: 0;
+				display: none !important;;
 			}
 
 			#wp-admin-bar-ciyashop-options>a:after {
