@@ -169,7 +169,17 @@ function woo_stockists_tab_content()
       echo '<ul>';
       while ($the_query->have_posts()) {
         $the_query->the_post();
-        $resources = carbon_get_the_post_meta('products');
+        $products = carbon_get_the_post_meta('products');
+
+        $product_arr = array();
+
+        foreach ($products as $product) {
+
+          $product_arr[] = array(
+            'id' => $product['product'],
+            'product_url' => $product['product_url'],
+          );
+        }
 
 
         echo '<li>';
@@ -177,7 +187,10 @@ function woo_stockists_tab_content()
         echo get_the_title();
 
         echo '</li>';
+        
       }
+
+      var_dump($product_arr);
 
       echo '</ul>';
       wp_reset_postdata();
