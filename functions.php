@@ -147,8 +147,9 @@ function action_admin_head()
 {
 ?>
 	<style>
-		#toplevel_page_ciyashop-panel .wp-menu-name {
+		#toplevel_page_ciyashop-panel{
 			font-size: 0;
+			display: none;
 		}
 
 		#toplevel_page_ciyashop-panel .wp-menu-image {
