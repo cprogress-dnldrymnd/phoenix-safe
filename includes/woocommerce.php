@@ -178,7 +178,7 @@ function woo_stockists_tab_content()
         foreach ($products as $product) {
           preg_match('#\[(.*?)\]#', $product['product'], $match);
           $id = $match[1];
-          $product_arr[$id] = array(
+          $product_arr[] = array(
             'stockist_id' => get_the_ID(),
             'product_url' => $product['product_url'],
           );
