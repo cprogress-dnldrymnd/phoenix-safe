@@ -171,7 +171,7 @@ function action_admin_head()
 		
 		#wp-admin-bar-ciyashop-options >a:after {
 			content: '';
-			font-size: 14px;
+			font-size: 13px;
 			content: 'Phoenix Safe Options';
 		}
 	</style>
