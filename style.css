@@ -608,13 +608,19 @@ input[type="date"] {
 
 .document-list .document-item {
   padding-top: 20px;
-  padding-bottom: 20px; }
-  .document-list .document-item i {
+  padding-bottom: 20px;
+  align-items: center; }
+  .document-list .document-item .document-icon i {
     font-size: 60px;
     color: var(--primary-color); }
   .document-list .document-item .document-title {
     font-size: 20px;
     color: var(--black-color);
-    font-weight: 500; }
+    font-weight: 500;
+    padding-left: 1rem;
+    padding-right: 1rem; }
+  .document-list .document-item .button-box a {
+    padding: 10px;
+    border-radius: 5px; }
 
 /*# sourceMappingURL=style.css.map */

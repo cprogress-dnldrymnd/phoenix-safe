@@ -946,14 +946,26 @@ input[type="date"] {
   .document-item {
     padding-top: 20px;
     padding-bottom: 20px;
-    i {
-      font-size: 60px;
-      color: var(--primary-color);
+    align-items: center;
+    .document-icon {
+      i {
+        font-size: 60px;
+        color: var(--primary-color);
+      }
     }
     .document-title {
       font-size: 20px;
       color: var(--black-color);
       font-weight: 500;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .button-box {
+     
+      a {
+        padding: 10px;
+        border-radius: 5px;
+      }
     }
   }
 }
