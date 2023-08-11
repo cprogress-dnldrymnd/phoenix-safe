@@ -571,4 +571,7 @@ input[type="date"] {
   color: #969696;
   font-size: 14px; }
 
+.testimonials .img-circle {
+  display: none !important; }
+
 /*# sourceMappingURL=style.css.map */
