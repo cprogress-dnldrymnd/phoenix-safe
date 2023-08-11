@@ -58,17 +58,7 @@ Container::make('post_meta', 'Product Lists')
 $stockist_fields = array();
 
 
-$args = array(
-  'post_type' => 'stockists',
-  'posts_per_page' => -1
-);
-$the_query = new WP_Query($args);
-if ($the_query->have_posts()) {
-  while ($the_query->have_posts()) {
-    $stockist_fields[] =  Field::make('text', 'stockist_' . get_the_ID(), __(get_the_title()));
-  }
-  wp_reset_postdata();
-}
+
 
 Container::make('post_meta', 'Stockist')
   ->where('post_type', '=', 'product')
