@@ -190,8 +190,9 @@ function woo_stockists_tab_content()
 
         echo '</li>';
       }
-
+      echo '<pre>';
       var_dump($product_arr);
+      echo '</pre>';
 
       echo '</ul>';
       wp_reset_postdata();
