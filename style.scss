@@ -931,6 +931,13 @@ input[type="date"] {
           height: 40px;
         }
       }
+      .text {
+        .title {
+          text-transform: capitalize;
+          color: var(--primary-color);
+          font-size: 16px;
+        }
+      }
     }
   }
 }

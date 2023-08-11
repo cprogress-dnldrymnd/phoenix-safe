@@ -601,5 +601,9 @@ input[type="date"] {
       .specs-box ul li .icon svg {
         width: 40px;
         height: 40px; }
+    .specs-box ul li .text .title {
+      text-transform: capitalize;
+      color: var(--primary-color);
+      font-size: 16px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -220,7 +220,7 @@ function add_text_after_excerpt_single_product($post_excerpt)
           <li class="d-flex align-items-center">
             <div class="icon"><?= $SVG->$spec ?></div>
             <div class="text">
-              <p>
+              <p class="title">
                 <strong> <?= str_replace('_', " ", $spec); ?> </strong>
               </p>
               <div>
