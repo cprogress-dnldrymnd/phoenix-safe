@@ -203,17 +203,22 @@ function get_posts_details($post_type, $label = 'Select Post', $posts_per_page =
 }
 
 
-function prefix_auto_featured_image() {
-    global $post;
-    if (!has_post_thumbnail($post->ID)) {
-        $attached_image = get_children( "post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1" );
-         
-      if ($attached_image) {
-              foreach ($attached_image as $attachment_id => $attachment) {
-                   set_post_thumbnail($post->ID, $attachment_id);
-              }
-         }
-    }
+function prefix_auto_featured_image()
+{
+	global $post;
+	if (!has_post_thumbnail($post->ID)) {
+		$attached_image = get_children("post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1");
+
+		if ($attached_image) {
+			$key = 1;
+			foreach ($attached_image as $attachment_id => $attachment) {
+				if ($key == 1) {
+					set_post_thumbnail($post->ID, $attachment_id);
+				}
+				$key++;
+			}
+		}
+	}
 }
 add_action('the_post', 'prefix_auto_featured_image');
 add_action('save_post', 'prefix_auto_featured_image');
