@@ -204,20 +204,28 @@ function add_text_after_excerpt_single_product($post_excerpt)
 {
   ob_start();
   echo $post_excerpt;
+  $SVG = new SVG;
   $specs = array(
     'fire_protection', 'drop_test', 'ventilation', 'temperature', 'doors', 'locking', 'construction', 'power', 'shelving', 'multipoint_lock', 'keypad', 'alarm', 'water_resist', 'combination', 'laptop', 'keyhole', 'fingerprint', 'insurance'
   );
-
-  foreach($specs as $spec) {
-    $spec = carbon_get_the_post_meta($spec);
-    echo $spec;
-    ?>
-
-    <?php
-  }
 ?>
 
+  <?php foreach ($specs as $spec) { ?>
+    <ul>
+      <?php
+      $spec = carbon_get_the_post_meta($spec);
+      ?>
+      <?php if ($spec) { ?>
 
-<?php
+        <li>
+          <span class="icon"><?= $SVG->$spec ?></span>
+          <span class="text"><?= $spec ?></span>
+        </li>
+
+      <?php } ?>
+    <?php } ?>
+
+    </ul>
+  <?php
   return ob_get_clean();
 }
