@@ -168,7 +168,7 @@ function woo_stockists_tab_content()
     $stockist_arr = array();
     $posts = get_posts($args);
     foreach ($posts as $p) {
-      $url = carbon_get_post_meta($product_id, 'stockist_' . $p->name);
+      $url = carbon_get_post_meta($product_id, 'stockist_' . $p->ID);
       if ($url) {
         $stockist_arr[] = array(
           'stockist_id' => $p->ID,
@@ -176,6 +176,10 @@ function woo_stockists_tab_content()
         );
       }
     }
+
+    echo '<pre>';
+    var_dump($posts);
+    echo '</pre>';
     ?>
     <div class="product-stockist">
       <div class="row">
