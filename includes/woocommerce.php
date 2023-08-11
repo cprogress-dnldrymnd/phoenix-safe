@@ -175,7 +175,6 @@ function woo_stockists_tab_content()
         $the_query->the_post();
         $products = carbon_get_the_post_meta('products');
 
-
         foreach ($products as $product) {
           preg_match('#\[(.*?)\]#', $product['product'], $match);
           $id = $match[1];
