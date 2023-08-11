@@ -241,8 +241,8 @@ function action_login_head()
 {
 	?>
 	<style type="text/css">
-		.body.login {
-			background-image: url(<?= wp_get_attachment_image_url(93766, ' full') ?>)
+		body.login {
+			background-image: url(<?= wp_get_attachment_image_url(93766, ' full') ?>) !important;
 		}
 	</style>
 <?php
