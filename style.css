@@ -589,4 +589,15 @@ input[type="date"] {
       background-color: var(--black-color);
       color: var(--white-color); }
 
+.specs-box ul {
+  padding-left: 0; }
+  .specs-box ul li span.icon {
+    flex: 0 0 40px;
+    max-width: 40px;
+    margin-right: 1rem;
+    height: 40px; }
+    .specs-box ul li span.icon svg {
+      width: 40px;
+      height: 40px; }
+
 /*# sourceMappingURL=style.css.map */
