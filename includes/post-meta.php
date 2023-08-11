@@ -5,9 +5,19 @@ use Carbon_Fields\Complex_Container;
 use Carbon_Fields\Field;
 
 
+$stockist_fields = array();
+
+$args = array(
+  'post_type' => 'stockists',
+  'posts_per_page' => -1
+);
+$posts = get_posts($args);
+foreach ($posts as $p) {
+  $stockist_fields[] =  Field::make('text', 'stockist_' . $p->post_name, __($p->post_title));
+}
 
 
-Container::make('post_meta', 'Resources')
+Container::make('post_meta', 'Product Data')
   ->where('post_type', '=', 'product')
   ->add_tab(
     'Resources',
@@ -33,7 +43,8 @@ Container::make('post_meta', 'Resources')
         ->set_header_template('<%- resource_title %>')
         ->set_layout('tabbed-vertical')
     )
-  );
+  )
+  ->add_tab('Stockist', $stockist_fields);
 
 
 /*
@@ -56,18 +67,3 @@ Container::make('post_meta', 'Product Lists')
   );
 
 */
-$stockist_fields = array();
-
-
-$args = array(
-  'post_type' => 'stockists',
-  'posts_per_page' => -1
-);
-$posts = get_posts($args);
-foreach ($posts as $p) {
-  $stockist_fields[] =  Field::make('text', 'stockist_' . $p->post_name, __($p->post_title));
-}
-
-Container::make('post_meta', 'Stockist')
-  ->where('post_type', '=', 'product')
-  ->add_fields($stockist_fields);
