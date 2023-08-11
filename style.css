@@ -592,7 +592,7 @@ input[type="date"] {
 .specs-box ul {
   padding-left: 0; }
   .specs-box ul li {
-    margin-bottom: 10px; }
+    margin-bottom: 20px; }
     .specs-box ul li .icon {
       flex: 0 0 40px;
       max-width: 40px;
