@@ -202,11 +202,11 @@ function woo_stockists_tab_content()
 add_filter('woocommerce_short_description', 'add_text_after_excerpt_single_product', 20, 1);
 function add_text_after_excerpt_single_product($post_excerpt)
 {
+  ob_start();
+  echo $post_excerpt;
+?>
+dsdsds
 
-  // Your custom text
-  $post_excerpt .= '<ul class="fancy-bullet-points red">
-    <li>Current Delivery Times: Pink Equine - 4 - 6 Weeks, all other products 4 Weeks</li>
-    </ul>';
-
-  return $post_excerpt;
+<?php
+  return ob_get_clean();
 }
