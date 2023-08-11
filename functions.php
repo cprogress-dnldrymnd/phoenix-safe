@@ -157,9 +157,9 @@ function action_admin_head() {
 		}
 		#toplevel_page_ciyashop-panel .wp-menu-image {
 			background-image: url(<?= wp_get_attachment_image_url(92936, 'large') ?>);
-			background-size: contain;
-			width: 20px;
-			height: 20px;
+			background-size: 20px;
+			background-position: center;
+			background-repeat: no-repeat;
 		}
 		#toplevel_page_ciyashop-panel .wp-menu-image img {
 			display: none;
