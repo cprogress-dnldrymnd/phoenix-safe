@@ -217,7 +217,7 @@ function add_text_after_excerpt_single_product($post_excerpt)
         ?>
         <?php if ($spec_val) { ?>
 
-          <li class="d-flex align-items-center">
+          <li class="d-flex">
             <div class="icon"><?= $SVG->$spec ?></div>
             <div class="text">
               <p class="title">
