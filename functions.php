@@ -74,7 +74,7 @@ function newsletter()
 			</div>
 		</div>
 	</div>
-<?php
+	<?php
 	return ob_get_clean();
 }
 
@@ -145,43 +145,46 @@ function get_resource_image($resource_type, $resource_thumbnail)
 
 function action_admin_head()
 {
-?>
-	<style>
-		#toplevel_page_ciyashop-panel{
-			font-size: 0;
-			display: none;
-		}
+	if (get_current_user_id() != 1) {
+	?>
+		<style>
+			#toplevel_page_ciyashop-panel {
+				font-size: 0;
+				display: none;
+			}
 
-		#toplevel_page_ciyashop-panel .wp-menu-image {
-			background-image: url(<?= wp_get_attachment_image_url(92936, 'large') ?>);
-			background-size: 25px;
-			background-position: center;
-			background-repeat: no-repeat;
-		}
+			#toplevel_page_ciyashop-panel .wp-menu-image {
+				background-image: url(<?= wp_get_attachment_image_url(92936, 'large') ?>);
+				background-size: 25px;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
 
-		#toplevel_page_ciyashop-panel .wp-menu-image img {
-			display: none;
-		}
+			#toplevel_page_ciyashop-panel .wp-menu-image img {
+				display: none;
+			}
 
-		#toplevel_page_ciyashop-panel .wp-menu-name:before {
-			font-size: 14px;
-			content: 'Phoenix Safe';
-		}
+			#toplevel_page_ciyashop-panel .wp-menu-name:before {
+				font-size: 14px;
+				content: 'Phoenix Safe';
+			}
 
-		#wp-admin-bar-ciyashop-options>a {
-			font-size: 0;
-		}
+			#wp-admin-bar-ciyashop-options>a {
+				font-size: 0;
+			}
 
-		#wp-admin-bar-ciyashop-options>a:after {
-			content: '';
-			font-size: 13px;
-			content: 'Phoenix Safe Options';
-		}
-		#wp-admin-bar-ciyashop-options .ab-sub-wrapper {
-			display: none !important;
-		}
-	</style>
+			#wp-admin-bar-ciyashop-options>a:after {
+				content: '';
+				font-size: 13px;
+				content: 'Phoenix Safe Options';
+			}
+
+			#wp-admin-bar-ciyashop-options .ab-sub-wrapper {
+				display: none !important;
+			}
+		</style>
 <?php
+	}
 }
 
 add_action('admin_head', 'action_admin_head');
