@@ -575,6 +575,6 @@ input[type="date"] {
   display: none !important; }
 
 .button-group-box-small a {
-  padding: 15px 20px; }
+  padding: 15px 20px !important; }
 
 /*# sourceMappingURL=style.css.map */
