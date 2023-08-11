@@ -207,6 +207,14 @@ function add_text_after_excerpt_single_product($post_excerpt)
   $specs = array(
     'fire_protection', 'drop_test', 'ventilation', 'temperature', 'doors', 'locking', 'construction', 'power', 'shelving', 'multipoint_lock', 'keypad', 'alarm', 'water_resist', 'combination', 'laptop', 'keyhole', 'fingerprint', 'insurance'
   );
+
+  foreach($specs as $spec) {
+    $spec = carbon_get_the_post_meta($spec);
+    echo $spec;
+    ?>
+
+    <?php
+  }
 ?>
 
 
