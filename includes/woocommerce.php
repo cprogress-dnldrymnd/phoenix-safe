@@ -218,7 +218,7 @@ function add_text_after_excerpt_single_product($post_excerpt)
 
         <li class="d-flex">
           <span class="icon"><?= $SVG->$key ?></span>
-          <span class="text"><?= $spec ?></span>
+          <span class="text"><?= $spec ?> <?= $key ?> </span>
         </li>
 
       <?php } ?>
