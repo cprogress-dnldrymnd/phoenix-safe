@@ -165,6 +165,6 @@ new newPostType(
         'show_in_admin_bar'   => false,
         'has_archive'         => false,
         'supports'      => array('title', 'revisions', 'editor', 'thumbnail', 'excerpt'),
-        'show_in_rest'  => true,
+        'show_in_rest'  => false,
     )
 );
