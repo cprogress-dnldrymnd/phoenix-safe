@@ -69,7 +69,7 @@ body {
   --white-color: #fff;
   --light-gray: #EFF2F1; }
 
-.ciyashop-site-layout-fullwidth .content-wrapper .container {
+.ciyashop-site-layout-fullwidth:not(.page-template-faq) .content-wrapper .container {
   width: 100%;
   max-width: 100%;
   padding: 0; }
