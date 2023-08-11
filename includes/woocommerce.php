@@ -175,6 +175,10 @@ function woo_stockists_tab_content()
 
         foreach ($products as $product) {
 
+          $text = $product['product'];
+          preg_match('#\([.*?]\)#', $text, $match);
+          print $match[1];
+
           $product_arr[] = array(
             'id' => $product['product'],
             'product_url' => $product['product_url'],
@@ -187,7 +191,6 @@ function woo_stockists_tab_content()
         echo get_the_title();
 
         echo '</li>';
-        
       }
 
       var_dump($product_arr);
