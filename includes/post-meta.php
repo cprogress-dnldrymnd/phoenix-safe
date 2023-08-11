@@ -49,6 +49,7 @@ Container::make('post_meta', 'Product Lists')
 
           )
         )
+        ->set_header_template('<%- product %>')
         ->set_layout('tabbed-vertical')
     )
   );
