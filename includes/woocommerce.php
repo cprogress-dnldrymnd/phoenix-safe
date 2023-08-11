@@ -209,15 +209,14 @@ function add_text_after_excerpt_single_product($post_excerpt)
     'fire_protection', 'drop_test', 'ventilation', 'temperature', 'doors', 'locking', 'construction', 'power', 'shelving', 'multipoint_lock', 'keypad', 'alarm', 'water_resist', 'combination', 'laptop', 'keyhole', 'fingerprint', 'insurance'
   );
 ?>
-
-  <?php foreach ($specs as $spec) { ?>
-    <ul>
+  <ul>
+    <?php foreach ($specs as $spec) { ?>
       <?php
       $spec = carbon_get_the_post_meta($spec);
       ?>
       <?php if ($spec) { ?>
 
-        <li>
+        <li class="d-flex">
           <span class="icon"><?= $SVG->$spec ?></span>
           <span class="text"><?= $spec ?></span>
         </li>
@@ -225,7 +224,7 @@ function add_text_after_excerpt_single_product($post_excerpt)
       <?php } ?>
     <?php } ?>
 
-    </ul>
-  <?php
+  </ul>
+<?php
   return ob_get_clean();
 }
