@@ -606,4 +606,15 @@ input[type="date"] {
       color: var(--primary-color);
       font-size: 16px; }
 
+.document-list .document-item {
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .document-list .document-item i {
+    font-size: 60px;
+    color: var(--primary-color); }
+  .document-list .document-item .document-title {
+    font-size: 20px;
+    color: var(--black-color);
+    font-weight: 500; }
+
 /*# sourceMappingURL=style.css.map */

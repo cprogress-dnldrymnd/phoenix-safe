@@ -941,3 +941,19 @@ input[type="date"] {
     }
   }
 }
+
+.document-list {
+  .document-item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    i {
+      font-size: 60px;
+      color: var(--primary-color);
+    }
+    .document-title {
+      font-size: 20px;
+      color: var(--black-color);
+      font-weight: 500;
+    }
+  }
+}
