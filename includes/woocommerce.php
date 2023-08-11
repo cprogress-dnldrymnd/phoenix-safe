@@ -164,26 +164,17 @@ function woo_stockists_tab_content()
       'post_type' => 'stockists',
       'posts_per_page' => -1,
     );
-
     $product_id = get_the_ID();
-    $the_query = new WP_Query($args);
-    if ($the_query->have_posts()) {
-      $stockist_arr = array();
-      while ($the_query->have_posts()) {
-        $the_query->the_post();
-        $products = carbon_get_the_post_meta('products');
-        foreach ($products as $product) {
-          preg_match('#\[(.*?)\]#', $product['product'], $match);
-          $id = $match[1];
-          if ($id == $product_id) {
-            $stockist_arr[] = array(
-              'stockist_id' => get_the_ID(),
-              'product_url' => $product['product_url'],
-            );
-          }
-        }
+    $stockist_arr = array();
+    $posts = get_posts($args);
+    foreach ($posts as $p) {
+      $url = carbon_get_post_meta($product_id, 'stockist_' . $p->ID);
+      if ($url) {
+        $stockist_arr[] = array(
+          'stockist_id' => $p->ID,
+          'product_url' => $url
+        );
       }
-      wp_reset_postdata();
     }
     ?>
     <div class="product-stockist">
