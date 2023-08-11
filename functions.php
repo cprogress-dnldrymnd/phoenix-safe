@@ -211,7 +211,9 @@ function prefix_auto_featured_image()
 	if ($attached_image) {
 		$key = 1;
 		foreach ($attached_image as $attachment_id => $attachment) {
-			set_post_thumbnail($post->ID, $attachment_id);
+			if ($key == 1) {
+				set_post_thumbnail($post->ID, $attachment_id);
+			}
 			$key++;
 		}
 	}
