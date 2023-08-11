@@ -232,3 +232,12 @@ add_action('draft_to_publish', 'prefix_auto_featured_image');
 add_action('new_to_publish', 'prefix_auto_featured_image');
 add_action('pending_to_publish', 'prefix_auto_featured_image');
 add_action('future_to_publish', 'prefix_auto_featured_image');*/
+
+
+
+
+
+function the_dramatist_custom_login_css() {
+    echo '<style type="text/css"> .body.login {background-image: url('.wp_get_attachment_image_url(93766, 'full').')}  </style>';
+}
+add_action('login_head', 'the_dramatist_custom_login_css');
