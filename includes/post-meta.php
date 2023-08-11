@@ -45,7 +45,7 @@ Container::make('post_meta', 'Product Lists')
           array(
             Field::make('select', 'product', __('Product'))
               ->set_options(get_posts_details('product')),
-            Field::make('text', 'product', __('Product URL'))
+            Field::make('text', 'product_url', __('Product URL'))
 
           )
         )
