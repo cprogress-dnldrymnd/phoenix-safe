@@ -64,7 +64,7 @@ $args = array(
 );
 $posts = get_posts($args);
 foreach ($posts as $p) {
-  $stockist_fields[] =  Field::make('text', 'stockist_' . $p->name, __($p->post_title));
+  $stockist_fields[] =  Field::make('text', 'stockist_' . $p->slug, __($p->post_title));
 }
 
 Container::make('post_meta', 'Stockist')
