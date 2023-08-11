@@ -167,11 +167,11 @@ function action_admin_head()
 			content: 'Phoenix Safe';
 		}
 
-		#wp-admin-bar-ciyashop-options >a {
+		#wp-admin-bar-ciyashop-options>a {
 			font-size: 0;
 		}
-		
-		#wp-admin-bar-ciyashop-options >a:after {
+
+		#wp-admin-bar-ciyashop-options>a:after {
 			content: '';
 			font-size: 13px;
 			content: 'Phoenix Safe Options';
@@ -196,7 +196,7 @@ function get_posts_details($post_type, $label = 'Select Post', $posts_per_page =
 
 	$posts = get_posts($args);
 	foreach ($posts as $post_val) {
-		$return[$post_val->ID] = $post_val->post_title;
+		$return['[' . $post_val->ID . '] ' . $post_val->post_title] = $post_val->post_title;
 	}
 
 	return $return;
