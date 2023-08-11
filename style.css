@@ -515,6 +515,11 @@ html {
 
 ul#resources {
   list-style: none; }
+  @media (min-width: 768px) and (max-width: 991px) {
+    ul#resources .col-md-4 {
+      -ms-flex: 0 0 50%;
+      flex: 0 0 50%;
+      max-width: 50%; } }
   ul#resources .inner {
     border: 1px solid #e5e5e5;
     margin-bottom: 2rem; }
