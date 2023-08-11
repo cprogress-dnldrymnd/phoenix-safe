@@ -178,7 +178,7 @@ function action_admin_head()
 			content: 'Phoenix Safe Options';
 		}
 		#wp-admin-bar-ciyashop-options .ab-sub-wrapper {
-			display: none;
+			display: none !important;
 		}
 	</style>
 <?php
