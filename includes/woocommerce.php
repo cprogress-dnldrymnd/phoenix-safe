@@ -209,7 +209,7 @@ function add_text_after_excerpt_single_product($post_excerpt)
     'fire_protection', 'drop_test', 'ventilation', 'temperature', 'doors', 'locking', 'construction', 'power', 'shelving', 'multipoint_lock', 'keypad', 'alarm', 'water_resist', 'combination', 'laptop', 'keyhole', 'fingerprint', 'insurance'
   );
 ?>
-  <div class="specs-box">
+  <div class="specs-box mt-4">
     <ul>
       <?php foreach ($specs as $spec) { ?>
         <?php
