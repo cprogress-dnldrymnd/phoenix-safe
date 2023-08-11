@@ -181,3 +181,23 @@ function action_admin_head()
 }
 
 add_action('admin_head', 'action_admin_head');
+
+function get_posts($post_type, $label = 'Select Post', $posts_per_page = -1, $post_status = 'publish')
+{
+	$return = array();
+	if ($label) {
+		$return[''] = $label;
+	}
+	$args = array(
+		'post_type'      => $post_type,
+		'posts_per_page' => $posts_per_page,
+		'post_status '   => $post_status
+	);
+
+	$posts = get_posts($args);
+	foreach ($posts as $post_val) {
+		$return[$post_val->ID] = $post_val->post_title;
+	}
+
+	return $return;
+}

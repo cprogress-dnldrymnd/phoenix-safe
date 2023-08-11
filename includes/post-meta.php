@@ -32,3 +32,22 @@ Container::make('post_meta', 'Resources')
         ->set_layout('tabbed-vertical')
     )
   );
+
+
+  
+Container::make('post_meta', 'Resources')
+->where('post_type', '=', 'stockists')
+->add_fields(
+  array(
+    Field::make('complex', 'products')
+      ->add_fields(
+        array(
+          Field::make('select', 'product', __('Resource Type'))
+          ->set_options(get_posts('page'))
+            )->set_width(25),
+        )
+      )
+      ->set_header_template('<%- resource_title %>')
+      ->set_layout('tabbed-vertical')
+  )
+);
