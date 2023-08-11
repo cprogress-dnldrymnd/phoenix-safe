@@ -19,7 +19,12 @@ if ($the_query->have_posts()) {
     echo '<ul>';
     while ($the_query->have_posts()) {
         $the_query->the_post();
-        echo '<li>' . esc_html(get_the_title()) . '</li>';
+        echo '<li>';
+        echo get_the_title();
+        echo '<br>';
+        echo get_the_content();
+
+        echo '</li>';
     }
 
     echo '</ul>';
