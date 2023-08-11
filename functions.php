@@ -182,7 +182,7 @@ function action_admin_head()
 
 add_action('admin_head', 'action_admin_head');
 
-function get_posts($post_type, $label = 'Select Post', $posts_per_page = -1, $post_status = 'publish')
+function get_posts_details($post_type, $label = 'Select Post', $posts_per_page = -1, $post_status = 'publish')
 {
 	$return = array();
 	if ($label) {

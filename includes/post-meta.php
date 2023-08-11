@@ -43,7 +43,7 @@ Container::make('post_meta', 'Resources')
       ->add_fields(
         array(
           Field::make('select', 'product', __('Resource Type'))
-          ->set_options(get_posts('page'))
+          ->set_options(get_posts_details('page'))
             )->set_width(25),
         )
       )
