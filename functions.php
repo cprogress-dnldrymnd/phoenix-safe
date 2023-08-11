@@ -152,8 +152,15 @@ function get_resource_image($resource_type, $resource_thumbnail)
 function action_admin_head() {
 	?>
 	<style>
-		#toplevel_page_ciyashop-panel {
+		#toplevel_page_ciyashop-panel .wp-menu-name{
 			font-size: 0;
+		}
+		#toplevel_page_ciyashop-panel .wp-menu-image {
+			display: none;
+		}
+		#toplevel_page_ciyashop-panel .wp-menu-name:before{
+			font-size: 14px;
+			content: 'Phoenix Safe';
 		}
 	</style>
 	<?php
