@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Add a custom product data tab
  */
@@ -14,8 +15,14 @@ function woo_resources_tab($tabs)
     'callback' => 'woo_resources_tab_content'
   );
 
-  return $tabs;
 
+  $tabs['stockists'] = array(
+    'title'    => __('Stockists', 'woocommerce'),
+    'priority' => 50,
+    'callback' => 'woo_stockists_tab_content'
+  );
+
+  return $tabs;
 }
 function woo_resources_tab_content()
 {
@@ -31,7 +38,7 @@ function woo_resources_tab_content()
       );
     }
   }
-  ?>
+?>
   <div class="resource-holder">
 
     <ul class="row" id="resources">
@@ -50,8 +57,7 @@ function woo_resources_tab_content()
 
           <li class="col-md-3">
             <div class="inner">
-              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
-                class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 
                 <div class="image-box">
 
@@ -74,14 +80,10 @@ function woo_resources_tab_content()
                     if ($resource_type == 'Brochure') {
 
                       echo 'READ THE BROCHURE';
-
-                    }
-                    else if ($resource_type == 'Technical Data') {
+                    } else if ($resource_type == 'Technical Data') {
 
                       echo 'READ THE SPEC';
-
-                    }
-                    else {
+                    } else {
                       echo 'WATCH THE VIDEO';
                     }
                     ?>
@@ -95,8 +97,7 @@ function woo_resources_tab_content()
 
         <?php } ?>
 
-      <?php }
-      else { ?>
+      <?php } else { ?>
 
         <li class="no-resource col-md-12">
 
@@ -122,7 +123,7 @@ function woo_resources_tab_content()
 
       xhr.responseType = "blob";
 
-      xhr.onload = function () {
+      xhr.onload = function() {
 
         var urlCreator = window.URL || window.webkitURL;
 
@@ -145,8 +146,85 @@ function woo_resources_tab_content()
       xhr.send();
 
     }
-
   </script>
-  <?php
+<?php
 
+}
+
+
+function woo_stockists_tab_content()
+{
+  $resources = carbon_get_the_post_meta('resources');
+  if ($resources) {
+    foreach ($resources as $resource) {
+      $resources_array[] = array(
+        'resource_product'   => get_the_title(),
+        'resource_type'      => $resource['resource_type'],
+        'resource_title'     => $resource['resource_title'],
+        'resource_thumbnail' => $resource['resource_thumbnail'],
+        'resource_file'      => $resource['resource_file'],
+      );
+    }
+  }
+?>
+  <div class="resource-holder">
+
+    <ul class="row" id="resources">
+
+
+        <?php foreach ($resources_array as $resource_val) { ?>
+
+          <?php
+          $resource_product = $resource_val['resource_product'];
+          $resource_type = $resource_val['resource_type'];
+          $resource_title = $resource_val['resource_title'];
+          $resource_thumbnail = $resource_val['resource_thumbnail'];
+          $resource_file = $resource_val['resource_file'];
+          ?>
+
+          <li class="col-md-3">
+            <div class="inner">
+              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+
+                <div class="image-box">
+
+                  <?= get_resource_image($resource_type, $resource_thumbnail) ?>
+
+                </div>
+
+                <div class="bottom-box">
+                  <div class="heading-box">
+                    <h3><?= $resource_product ?></h3>
+                  </div>
+                  <div class="title-box">
+                    <h2>
+                      <?= $resource_title ?>
+                    </h2>
+                  </div>
+
+                  <span class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+                    <?php
+                    if ($resource_type == 'Brochure') {
+
+                      echo 'READ THE BROCHURE';
+                    } else if ($resource_type == 'Technical Data') {
+
+                      echo 'READ THE SPEC';
+                    } else {
+                      echo 'WATCH THE VIDEO';
+                    }
+                    ?>
+                    <span class="icon-after btn-icon"><i aria-hidden="true" class="fas fa-arrow-right"></i></span>
+                  </span>
+                </div>
+              </a>
+            </div>
+
+          </li>
+
+    </ul>
+
+  </div>
+
+<?php
 }
