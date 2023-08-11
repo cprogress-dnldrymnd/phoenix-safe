@@ -580,7 +580,7 @@ input[type="date"] {
     background-color: transparent;
     color: var(--black-color);
     border: 1px solid var(--black-color); }
-    .button-group-box-small a.button-bordered:hovert {
+    .button-group-box-small a.button-bordered:hover {
       background-color: var(--black-color);
       color: var(--white-color); }
 
