@@ -164,6 +164,8 @@ function woo_stockists_tab_content()
       'post_type' => 'stockists',
       'posts_per_page' => -1,
     );
+
+    $product_id = get_the_ID();
     $the_query = new WP_Query($args);
     if ($the_query->have_posts()) {
       echo '<ul>';
@@ -184,7 +186,7 @@ function woo_stockists_tab_content()
 
 
         echo '<li>';
-        if (array_key_exists(get_the_ID(), $product_arr)) {
+        if (array_key_exists($product_id, $product_arr)) {
           echo get_the_title();
         }
         echo get_the_ID();
