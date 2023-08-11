@@ -67,7 +67,7 @@ Container::make('post_meta', 'Product Data')
       Field::make('text', 'fingerprint', __('Fingerprint')),
       Field::make('text', 'insurance', __('Insurance')),
     )
-  )
+    );
 
 
 /*
