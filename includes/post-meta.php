@@ -1,4 +1,5 @@
 <?php
+
 use Carbon_Fields\Container;
 use Carbon_Fields\Complex_Container;
 use Carbon_Fields\Field;
@@ -34,20 +35,19 @@ Container::make('post_meta', 'Resources')
   );
 
 
-  
+
 Container::make('post_meta', 'Resources')
-->where('post_type', '=', 'stockists')
-->add_fields(
-  array(
-    Field::make('complex', 'products')
-      ->add_fields(
-        array(
-          Field::make('select', 'product', __('Resource Type'))
-          ->set_options(get_posts_details('page'))
-            )->set_width(25),
+  ->where('post_type', '=', 'stockists')
+  ->add_fields(
+    array(
+      Field::make('complex', 'products')
+        ->add_fields(
+          array(
+            Field::make('select', 'product', __('Resource Type'))
+              ->set_options(get_posts_details('page'))
+          )
         )
-      )
-      ->set_header_template('<%- resource_title %>')
-      ->set_layout('tabbed-vertical')
-  )
-);
+        ->set_header_template('<%- resource_title %>')
+        ->set_layout('tabbed-vertical')
+    )
+  );
