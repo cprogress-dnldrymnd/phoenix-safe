@@ -175,8 +175,7 @@ function woo_stockists_tab_content()
 
         foreach ($products as $product) {
 
-          $text = 'ignore everything except this (text)';
-          preg_match('#\((.*?)\)#', $text, $match);
+          preg_match('#\[[.*?]\]#', $product['product'], $match);
           print $match[1];
 
           $product_arr[] = array(
