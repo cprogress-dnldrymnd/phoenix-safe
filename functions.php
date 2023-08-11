@@ -209,8 +209,10 @@ function prefix_auto_featured_image()
 	$attached_image = get_children("post_parent=$post->ID&post_type=attachment&post_mime_type=image&numberposts=1");
 
 	if ($attached_image) {
+		$key = 1;
 		foreach ($attached_image as $attachment_id => $attachment) {
 			set_post_thumbnail($post->ID, $attachment_id);
+			$key++;
 		}
 	}
 }
