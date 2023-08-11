@@ -983,3 +983,12 @@ input[type="date"] {
     margin-right: 5px;
   }
 }
+
+.document-search {
+  .search-submit {
+    width: auto !important;
+    max-width: 100% !important;
+    padding: 10px 20px;
+    line-height: 1.5;
+  }
+}
