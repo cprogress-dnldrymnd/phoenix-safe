@@ -36,7 +36,7 @@ Container::make('post_meta', 'Resources')
 
 
 
-Container::make('post_meta', 'Resources')
+Container::make('post_meta', 'Product Lists')
   ->where('post_type', '=', 'stockists')
   ->add_fields(
     array(
@@ -44,7 +44,7 @@ Container::make('post_meta', 'Resources')
         ->add_fields(
           array(
             Field::make('select', 'product', __('Resource Type'))
-              ->set_options(get_posts_details('page'))
+              ->set_options(get_posts_details('product'))
           )
         )
         ->set_header_template('<%- resource_title %>')
