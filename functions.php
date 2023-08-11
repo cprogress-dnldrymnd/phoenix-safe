@@ -183,7 +183,7 @@ function action_admin_head()
 				display: none !important;
 			}
 		</style>
-<?php
+	<?php
 	}
 }
 
@@ -237,7 +237,14 @@ add_action('future_to_publish', 'prefix_auto_featured_image');*/
 
 
 
-function the_dramatist_custom_login_css() {
-    echo '<style type="text/css"> .body.login {background-image: url('.wp_get_attachment_image_url(93766, 'full').')}  </style>';
+function action_login_head()
+{
+	?>
+	<style type="text/css">
+		.body.login {
+			background-image: url(<?= wp_get_attachment_image_url(93766, ' full') ?>)
+		}
+	</style>
+<?php
 }
-add_action('login_head', 'the_dramatist_custom_login_css');
+add_action('login_head', 'action_login_head');
