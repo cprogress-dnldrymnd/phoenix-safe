@@ -210,14 +210,14 @@ function add_text_after_excerpt_single_product($post_excerpt)
   );
 ?>
   <ul>
-    <?php foreach ($specs as $spec) { ?>
+    <?php foreach ($specs as $key => $spec) { ?>
       <?php
       $spec = carbon_get_the_post_meta($spec);
       ?>
       <?php if ($spec) { ?>
 
         <li class="d-flex">
-          <span class="icon"><?= $SVG->$spec ?></span>
+          <span class="icon"><?= $SVG->$key ?></span>
           <span class="text"><?= $spec ?></span>
         </li>
 
