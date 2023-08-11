@@ -177,9 +177,7 @@ function woo_stockists_tab_content()
       }
     }
 
-    echo '<pre>';
-    var_dump($posts);
-    echo '</pre>';
+
     ?>
     <div class="product-stockist">
       <div class="row">
