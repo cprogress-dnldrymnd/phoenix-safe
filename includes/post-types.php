@@ -168,3 +168,18 @@ new newPostType(
         'show_in_rest'  => false,
     )
 );
+
+
+new newPostType(
+    array(
+        'name'          => 'Documents',
+        'singular_name' => 'document',
+        'icon'          => 'dashicons-media-text',
+        'exclude_from_search' => true,
+        'publicly_queryable'  => false,
+        'show_in_admin_bar'   => false,
+        'has_archive'         => false,
+        'supports'      => array('title', 'revisions', 'thumbnail', 'excerpt'),
+        'show_in_rest'  => false,
+    )
+);
