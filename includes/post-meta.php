@@ -70,6 +70,6 @@ if ($the_query->have_posts()) {
   wp_reset_postdata();
 }
 
-Container::make('post_meta', 'Product Lists')
+Container::make('post_meta', 'Stockist')
   ->where('post_type', '=', 'product')
   ->add_fields($stockist_fields);
