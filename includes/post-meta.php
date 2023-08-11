@@ -60,7 +60,7 @@ $stockist_fields = array();
 
 $args = array(
   'post_type' => 'stockists',
-  'numberposts' => -1
+  'posts_per_page' => -1
 );
 $posts = get_posts($args);
 foreach ($posts as $p) {
