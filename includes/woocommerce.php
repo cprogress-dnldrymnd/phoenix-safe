@@ -169,11 +169,12 @@ function woo_stockists_tab_content()
     $the_query = new WP_Query($args);
     if ($the_query->have_posts()) {
       echo '<ul>';
+      $product_arr = array();
+
       while ($the_query->have_posts()) {
         $the_query->the_post();
         $products = carbon_get_the_post_meta('products');
 
-        $product_arr = array();
 
         foreach ($products as $product) {
           preg_match('#\[(.*?)\]#', $product['product'], $match);
