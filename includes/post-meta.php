@@ -35,7 +35,7 @@ Container::make('post_meta', 'Resources')
   );
 
 
-
+/*
 Container::make('post_meta', 'Product Lists')
   ->where('post_type', '=', 'stockists')
   ->add_fields(
@@ -54,7 +54,7 @@ Container::make('post_meta', 'Product Lists')
     )
   );
 
-
+*/
 $stockist_fields = array();
 
 
