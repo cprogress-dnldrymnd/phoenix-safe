@@ -58,7 +58,14 @@ Container::make('post_meta', 'Product Lists')
 $stockist_fields = array();
 
 
-
+$args = array(
+  'post_type' => 'stockists',
+  'numberposts' => -1
+);
+$posts = get_posts($args);
+foreach ($posts as $p) {
+  $stockist_fields[] =  Field::make('text', 'stockist_' . $p->ID, __($p->post_title));
+}
 
 Container::make('post_meta', 'Stockist')
   ->where('post_type', '=', 'product')
