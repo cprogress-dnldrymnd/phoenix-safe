@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Theme functions and definitions.
  *
@@ -41,7 +42,6 @@ function phoenix_safe_child_enqueue_styles()
 	wp_enqueue_style('tissue-paper-swiper-css', vendor_dir . 'swiper/swiper-bundle.min.css');
 	wp_enqueue_script('tissue-paper-swiper-js', vendor_dir . 'swiper/swiper-bundle.min.js');
 	wp_enqueue_script('tissue-paper-js', assets_dir . 'js/main.js');
-
 }
 add_action('wp_enqueue_scripts', 'phoenix_safe_child_enqueue_styles', 11);
 
@@ -49,7 +49,7 @@ add_action('wp_enqueue_scripts', 'phoenix_safe_child_enqueue_styles', 11);
 function newsletter()
 {
 	ob_start()
-		?>
+?>
 	<div class="newsletter">
 		<div class="row">
 			<div class="col-lg-6">
@@ -65,7 +65,7 @@ function newsletter()
 				</div>
 			</div>
 			<div class="col-lg-6">
-				<?= do_shortcode( '[contact-form-7 id="39193" title="Newsletter"]' ) ?>
+				<?= do_shortcode('[contact-form-7 id="39193" title="Newsletter"]') ?>
 				<div class="privacy-text">
 					<p>
 						By subscribing, you are agreeing to our <a href="<?= get_privacy_policy_url() ?>">Privacy Policy</a>.
@@ -74,7 +74,7 @@ function newsletter()
 			</div>
 		</div>
 	</div>
-	<?php
+<?php
 	return ob_get_clean();
 }
 
@@ -123,53 +123,58 @@ function get_resource_image($resource_type, $resource_thumbnail)
 	if ($resource_type == 'Brochure') {
 
 		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-3.jpg"/>';
-
-	}
-	else if ($resource_type == 'Technical Data') {
+	} else if ($resource_type == 'Technical Data') {
 
 		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-1.jpg"/>';
-
-
-	}
-	else {
+	} else {
 		$thumb = '<img src="' . get_stylesheet_directory_uri() . '/assets/images/thumb-2.jpg"/>';
 	}
 
 	if ($resource_thumbnail) {
 
 		$return = '<img src="' . wp_get_attachment_image_url($resource_thumbnail, 'large') . '"/>';
-
-	}
-	else {
+	} else {
 		$return = $thumb;
 	}
 
 
 	return $return;
-
 }
 
-function action_admin_head() {
-	?>
+function action_admin_head()
+{
+?>
 	<style>
-		#toplevel_page_ciyashop-panel .wp-menu-name{
+		#toplevel_page_ciyashop-panel .wp-menu-name {
 			font-size: 0;
 		}
+
 		#toplevel_page_ciyashop-panel .wp-menu-image {
 			background-image: url(<?= wp_get_attachment_image_url(92936, 'large') ?>);
-			background-size: 20px;
+			background-size: 25px;
 			background-position: center;
 			background-repeat: no-repeat;
 		}
+
 		#toplevel_page_ciyashop-panel .wp-menu-image img {
 			display: none;
 		}
-		#toplevel_page_ciyashop-panel .wp-menu-name:before{
+
+		#toplevel_page_ciyashop-panel .wp-menu-name:before {
 			font-size: 14px;
 			content: 'Phoenix Safe';
 		}
+
+		#wp-admin-bar-ciyashop-options a {
+			font-size: 0;
+		}
+		
+		#wp-admin-bar-ciyashop-options .wp-menu-name:before {
+			font-size: 14px;
+			content: 'Phoenix Safe Options';
+		}
 	</style>
-	<?php
+<?php
 }
 
 add_action('admin_head', 'action_admin_head');
