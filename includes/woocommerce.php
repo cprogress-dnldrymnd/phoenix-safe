@@ -190,7 +190,7 @@ function woo_stockists_tab_content()
       <div class="row">
         <?php foreach ($stockist_arr as $stockist) { ?>
           <div class="col-lg-3">
-            <a href="<?= $product_url ?>">
+            <a href="<?= $stockist['product_url'] ?>">
               <div class="image-box">
                 <img src="<?= get_the_post_thumbnail_url($stockist['stockist_id'], 'medium') ?>" alt="">
               </div>
