@@ -43,8 +43,10 @@ Container::make('post_meta', 'Product Lists')
       Field::make('complex', 'products')
         ->add_fields(
           array(
-            Field::make('select', 'product', __('Resource Type'))
-              ->set_options(get_posts_details('product'))
+            Field::make('select', 'product', __('Product'))
+              ->set_options(get_posts_details('product')),
+            Field::make('text', 'product', __('Product URL'))
+
           )
         )
         ->set_header_template('<%- resource_title %>')
