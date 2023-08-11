@@ -44,7 +44,30 @@ Container::make('post_meta', 'Product Data')
         ->set_layout('tabbed-vertical')
     )
   )
-  ->add_tab('Stockist', $stockist_fields);
+  ->add_tab('Stockists', $stockist_fields)
+  ->add_tab(
+    'Specifications',
+    array(
+      Field::make('text', 'fire_protection', __('Fire Protection')),
+      Field::make('text', 'drop_test', __('Drop Test')),
+      Field::make('text', 'ventilation', __('Ventilation')),
+      Field::make('text', 'temperature', __('Temperature')),
+      Field::make('text', 'doors', __('Doors')),
+      Field::make('text', 'locking', __('Locking')),
+      Field::make('text', 'construction', __('Construction')),
+      Field::make('text', 'power', __('Power')),
+      Field::make('text', 'shelving', __('shelving')),
+      Field::make('text', 'multipoint_lock', __('Multipoint Lock')),
+      Field::make('text', 'keypad', __('Keypad')),
+      Field::make('text', 'alarm', __('Alarm')),
+      Field::make('text', 'water_resist', __('Water Resist')),
+      Field::make('text', 'combination', __('Combination')),
+      Field::make('text', 'laptop', __('Laptop')),
+      Field::make('text', 'keyhole', __('Keyhole')),
+      Field::make('text', 'fingerprint', __('Fingerprint')),
+      Field::make('text', 'insurance', __('Insurance')),
+    )
+  )
 
 
 /*
