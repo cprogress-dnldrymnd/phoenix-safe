@@ -154,12 +154,35 @@ function woo_resources_tab_content()
 
 function woo_stockists_tab_content()
 {
-  $resources = carbon_get_the_post_meta('resources');
 ?>
   <div class="resource-holder">
 
-    sdsdsds
+    <h2>Stockists</h2>
 
+    <?php
+    $args = array(
+      'post_type' => 'stockists',
+      'posts_per_page' => -1,
+    );
+    $the_query = new WP_Query($args);
+    if ($the_query->have_posts()) {
+      echo '<ul>';
+      while ($the_query->have_posts()) {
+        $the_query->the_post();
+        $resources = carbon_get_the_post_meta('products');
+
+
+        echo '<li>';
+
+        echo get_the_title();
+
+        echo '</li>';
+      }
+
+      echo '</ul>';
+      wp_reset_postdata();
+    }
+    ?>
 
   </div>
 
