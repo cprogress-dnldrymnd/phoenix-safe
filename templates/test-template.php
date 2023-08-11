@@ -22,7 +22,6 @@ if ($the_query->have_posts()) {
         echo '<li>';
         echo get_the_title();
         echo '<br>';
-        echo get_the_content();
         //update_post_meta();
         echo get_post_meta(get_the_ID(), 'content', true);
         echo '</li>';
