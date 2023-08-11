@@ -593,12 +593,12 @@ input[type="date"] {
   padding-left: 0; }
   .specs-box ul li {
     margin-bottom: 10px; }
-    .specs-box ul li span.icon {
+    .specs-box ul li .icon {
       flex: 0 0 40px;
       max-width: 40px;
       margin-right: 1rem;
       height: 40px; }
-      .specs-box ul li span.icon svg {
+      .specs-box ul li .icon svg {
         width: 40px;
         height: 40px; }
 

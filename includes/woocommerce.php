@@ -218,8 +218,15 @@ function add_text_after_excerpt_single_product($post_excerpt)
         <?php if ($spec_val) { ?>
 
           <li class="d-flex align-items-center">
-            <span class="icon"><?= $SVG->$spec ?></span>
-            <span class="text"><?= $spec_val ?> </span>
+            <div class="icon"><?= $SVG->$spec ?></div>
+            <div class="text">
+              <p>
+                <strong> <?= str_replace('_', " ", $spec); ?> </strong>
+              </p>
+              <div>
+                <?= wpautop($spec_val) ?>
+              </div>
+            </div>
           </li>
 
         <?php } ?>
