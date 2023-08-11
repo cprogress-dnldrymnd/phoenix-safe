@@ -177,6 +177,9 @@ function action_admin_head()
 			font-size: 13px;
 			content: 'Phoenix Safe Options';
 		}
+		#wp-admin-bar-ciyashop-options .ab-sub-wrapper {
+			display: none;
+		}
 	</style>
 <?php
 }
