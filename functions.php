@@ -145,7 +145,6 @@ function get_resource_image($resource_type, $resource_thumbnail)
 
 function action_admin_head()
 {
-	if (get_current_user_id() != 1) {
 	?>
 		<style>
 			#toplevel_page_ciyashop-panel {
@@ -185,7 +184,6 @@ function action_admin_head()
 			}
 		</style>
 	<?php
-	}
 }
 
 add_action('admin_head', 'action_admin_head');
