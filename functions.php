@@ -156,6 +156,12 @@ function action_admin_head() {
 			font-size: 0;
 		}
 		#toplevel_page_ciyashop-panel .wp-menu-image {
+			background-image: url(<?= wp_get_attachment_image_url(92936, 'large') ?>);
+			background-size: contain;
+			width: 20px;
+			height: 20px;
+		}
+		#toplevel_page_ciyashop-panel .wp-menu-image img {
 			display: none;
 		}
 		#toplevel_page_ciyashop-panel .wp-menu-name:before{
