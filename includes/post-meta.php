@@ -71,19 +71,5 @@ if ($the_query->have_posts()) {
 }
 
 Container::make('post_meta', 'Product Lists')
-  ->where('post_type', '=', 'products')
-  ->add_fields(
-    array(
-      Field::make('complex', 'products')
-        ->add_fields(
-          array(
-            Field::make('select', 'product', __('Product'))
-              ->set_options(get_posts_details('product')),
-            Field::make('text', 'product_url', __('Product URL'))
-
-          )
-        )
-        ->set_header_template('<%- product %>')
-        ->set_layout('tabbed-vertical')
-    )
-  );
+  ->where('post_type', '=', 'product')
+  ->add_fields($stockist_fields);
