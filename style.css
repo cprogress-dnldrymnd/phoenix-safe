@@ -576,5 +576,12 @@ input[type="date"] {
 
 .button-group-box-small a {
   padding: 15px 20px !important; }
+  .button-group-box-small a.button-bordered {
+    background-color: transparent;
+    color: var(--black-color);
+    border: 1px solid var(--black-color); }
+    .button-group-box-small a.button-bordered:hovert {
+      background-color: var(--black-color);
+      color: var(--white-color); }
 
 /*# sourceMappingURL=style.css.map */
