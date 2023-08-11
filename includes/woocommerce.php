@@ -187,7 +187,7 @@ function woo_stockists_tab_content()
         if (array_key_exists(get_the_ID(), $product_arr)) {
           echo get_the_title();
         }
-
+        echo get_the_ID();
         echo '</li>';
       }
       echo '<pre>';
