@@ -155,7 +155,7 @@ function woo_resources_tab_content()
 function woo_stockists_tab_content()
 {
 ?>
-  <div class="resource-holder">
+  <div class="product-stockist-holder">
 
     <h2>Stockists</h2>
 
@@ -168,38 +168,38 @@ function woo_stockists_tab_content()
     $product_id = get_the_ID();
     $the_query = new WP_Query($args);
     if ($the_query->have_posts()) {
-      echo '<ul>';
-      $product_arr = array();
-
+      $stockist_arr = array();
       while ($the_query->have_posts()) {
         $the_query->the_post();
         $products = carbon_get_the_post_meta('products');
-
         foreach ($products as $product) {
           preg_match('#\[(.*?)\]#', $product['product'], $match);
           $id = $match[1];
           if ($id == $product_id) {
-            $product_arr[] = array(
+            $stockist_arr[] = array(
               'stockist_id' => get_the_ID(),
               'product_url' => $product['product_url'],
             );
           }
         }
-
-
-        echo '<li>';
-     
-        echo '</li>';
       }
-      echo '<pre>';
-      var_dump($product_arr);
-      echo '</pre>';
-
-      echo '</ul>';
       wp_reset_postdata();
     }
     ?>
+    <div class="product-stockist">
+      <div class="row">
+        <?php foreach ($stockist_arr as $stockist) { ?>
+          <div class="col-lg-3">
+            <a href="<?= $product_url ?>">
+              <div class="image-box">
+                <img src="<?= get_the_post_thumbnail_url($stockist['stockist_id'], 'medium') ?>" alt="">
+              </div>
+            </a>
+          </div>
+        <?php } ?>
+      </div>
 
+    </div>
   </div>
 
 <?php
