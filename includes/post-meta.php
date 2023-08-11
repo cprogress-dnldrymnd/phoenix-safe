@@ -9,7 +9,8 @@ use Carbon_Fields\Field;
 
 Container::make('post_meta', 'Resources')
   ->where('post_type', '=', 'product')
-  ->add_fields(
+  ->add_tab(
+    'Resources',
     array(
       Field::make('complex', 'resources')
         ->add_fields(
