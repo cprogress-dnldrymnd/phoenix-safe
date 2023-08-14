@@ -94,7 +94,7 @@ Container::make('post_meta', 'Stockist Code')
   ->where('post_type', '=', 'stockists')
   ->add_fields(
     array(
-      Field::make('text', 'stockist_code_html', '')
+      Field::make('text', 'stockist_code', '')
       ->set_help_text('Please make it unique for each')
     )
   );
