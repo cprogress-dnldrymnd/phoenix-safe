@@ -319,7 +319,21 @@ function import_vendors_contents()
                                 $product_id = $meta_input['product_id'];
                                 $url = $meta_input['url'];
 
-                                carbon_set_post_meta(10, 'crb_text', 'Hello World!');
+                                $args = array(
+                                    'posts_per_page' => 1,
+                                    'post_type'  => 'product',
+                                    'meta_query' => array(
+                                        array(
+                                            'key'   => '_stockist_code',
+                                            'value' => $stockist_code,
+                                        )
+                                    )
+                                );
+                                $postslist = get_posts($args);
+
+                                echo $postslist[0]->ID;
+
+                               // carbon_set_post_meta(10, 'crb_text', 'Hello World!');
 
                     ?>
                                 <tr>
