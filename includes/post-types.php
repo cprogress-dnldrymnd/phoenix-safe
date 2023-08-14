@@ -175,6 +175,7 @@ add_filter('manage_stockists_posts_columns', 'set_custom_edit_stockists_columns'
 function set_custom_edit_stockists_columns($columns)
 {
     unset($columns['author']);
+    unset($columns['date']);
     $columns['stockist_code'] = __('Stockist Code', 'your_text_domain');
 
     return $columns;
