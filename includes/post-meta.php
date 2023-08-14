@@ -90,3 +90,11 @@ Container::make('post_meta', 'Product Lists')
   );
 
 */
+Container::make('post_meta', 'Product Lists')
+  ->where('post_type', '=', 'stockists')
+  ->add_fields(
+    array(
+      Field::make('text', 'stockist_code')
+      ->set_help_text('Please make it unique for each')
+    )
+  );
