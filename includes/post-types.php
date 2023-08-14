@@ -360,6 +360,8 @@ function import_vendors_contents()
                                         <?php
                                         if ($update) {
                                             echo 'updated';
+                                        } else {
+                                            echo 'already added';
                                         }
                                         ?>
                                     </td>
