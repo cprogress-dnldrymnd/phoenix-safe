@@ -192,3 +192,221 @@ function custom_stockists_column($column, $post_id)
             break;
     }
 }
+
+
+function import_vendors()
+{
+    add_submenu_page(
+        'edit.php?post_type=stockists',
+        __('Import Stockists', 'textdomain'),
+        __('Import Stockists', 'textdomain'),
+        'manage_options',
+        'import-stockists',
+        'import_vendors_contents'
+    );
+}
+
+add_action('admin_menu', 'import_vendors');
+
+
+function import_vendors_contents()
+{
+    ?>
+    <style>
+        .import-form {
+            max-width: 500px;
+        }
+
+        .import-form .form-control:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+
+        .import-form input {
+            width: 100%;
+        }
+
+        .import-form .submit {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .import-table {
+            overflow: auto;
+        }
+
+        .import-table th,
+        .import-table td {
+            padding: 5px 5px;
+        }
+
+        .import-table>table>tbody {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .import-table table {
+            width: 100%;
+        }
+
+        .import-table>table>tbody>tr {
+            padding: 5px;
+            flex: 0 0 auto;
+            width: 28%;
+            border: 1px solid #ececec;
+            background-color: #ececec;
+        }
+
+        .import-table>table>tbody>tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        .login-details {
+            background-color: #adf5ad;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px dashed;
+        }
+    </style>
+    <h1>
+        <?php esc_html_e('Import stockist', 'my-plugin-textdomain'); ?>
+    </h1>
+
+    <?php if (!$_GET['csv']) { ?>
+        <form action="/wp-admin/edit.php" method="GET" class="import-form">
+            <div class="form-control">
+                <label for="">
+                    <h4>Please upload csv in media library and put csv link below.</h4>
+                    <input type="hidden" name="post_type" value="vendor">
+                    <input type="hidden" name="page" value="import-stockists">
+                    <input type="text" name="csv" placeholder="CSV URL" required>
+                </label>
+            </div>
+            <div class="form-control">
+                <input type="submit" value="SUBMIT" class="submit button button-primary">
+            </div>
+        </form>
+    <?php }
+    else { ?>
+        <h3>CSV URL: <?= $_GET['csv'] ?></h3>
+    <?php } ?>
+    <?php
+
+    if ($_GET['csv']) {
+        $CSVfp = fopen($_GET['csv'], "r");
+        if ($CSVfp !== FALSE) {
+            ?>
+            <div class="import-table">
+                <table>
+                    <?php
+                    $row = 0;
+                    $meta_name = array();
+                    $meta_input = array();
+
+                    while (!feof($CSVfp)) {
+                        $data = fgetcsv($CSVfp, 1000, ",");
+                        if (!empty($data)) {
+                            if ($row == 0) {
+                                foreach ($data as $key => $d) {
+                                    if ($d != 'categories') {
+                                        $meta_name[] = $d;
+                                    }
+                                }
+                            }
+                            else {
+                                foreach ($data as $key => $d) {
+                                    if ($d != 'categories') {
+                                        $meta_input[$meta_name[$key]] = $d;
+                                    }
+                                }
+                                $fname = preg_replace('/[^a-zA-Z0-9_.]/', '_', $meta_input['first_name']);
+                                $lname = preg_replace('/[^a-zA-Z0-9_.]/', '_', $meta_input['last_name']);
+                                $username = strtolower($fname . '_' . $lname);
+                                $password = $username;
+                                $email = $meta_input['user_email'];
+                                $user_id = create_new_vedor_user($username, $password, $email);
+                                $meta_input['user_id'] = $user_id;
+                                $post_exist = post_exists($meta_input['company_name']);
+                                if ($post_exist) {
+                                    $status = 'VENDOR EXIST ALREADY';
+                                    $new_post_id = $post_exist;
+                                }
+                                else {
+                                    $new_post_id = create_new_vendor_post($data, $meta_input);
+                                    if ($new_post_id) {
+                                        $status = 'IMPORTED';
+                                    }
+                                    else {
+                                        $status = 'FAILED';
+                                    }
+                                }
+
+
+
+                                ?>
+                                <tr>
+                                    <td>
+                                        <h2 style="margin-top: 0; margin-bottom: 15px"><?= $meta_input['company_name'] ?> [<?= $status ?>]</h2>
+                                        <table style="text-align: left">
+                                            <tr>
+                                                <th>
+                                                    post_id
+                                                </th>
+                                                <td>
+                                                    <?= $new_post_id ?>
+                                                    <a href="<?= get_edit_post_link($new_post_id) ?>">[EDIT]</a>
+                                                    <a href="<?= get_permalink($new_post_id) ?>">[VIEW]</a>
+                                                </td>
+                                            </tr>
+                                            <?php foreach ($meta_input as $key => $d) { ?>
+                                                <?php if ($key != '') { ?>
+                                                    <tr>
+                                                        <th>
+                                                            <?= $key ?>
+                                                        </th>
+                                                        <td>
+                                                            <?= $d ?>
+                                                        </td>
+                                                    </tr>
+                                                <?php } ?>
+                                            <?php } ?>
+                                            <tr>
+                                                <th>
+                                                    categories
+                                                </th>
+                                                <td>
+                                                    <?= $data[11] ?>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div class="login-details">
+                                                        <div>
+                                                            <strong>username:</strong> <?= $username ?>
+                                                        </div>
+                                                        <div>
+                                                            <strong>password:</strong> <?= $password ?>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+                        <?php } ?>
+                        <?php $row++; ?>
+                        <?php
+                    }
+                    ?>
+                </table>
+            </div>
+            <?php
+        }
+        fclose($CSVfp);
+    }
+
+}
