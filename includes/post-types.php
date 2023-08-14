@@ -354,15 +354,15 @@ function import_vendors_contents()
                                                 <?= $d ?>
                                             </td>
                                         <?php } ?>
-                                        <td>
-                                            <?php
-                                            if ($update) {
-                                                echo 'updated';
-                                            }
-                                            ?>
-                                        </td>
-                                    <?php } ?>
 
+                                    <?php } ?>
+                                    <td>
+                                        <?php
+                                        if ($update) {
+                                            echo 'updated';
+                                        }
+                                        ?>
+                                    </td>
                                 </tr>
                             <?php
                             }
