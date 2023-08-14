@@ -261,12 +261,6 @@ function import_vendors_contents()
             background-color: #fff;
         }
 
-        .login-details {
-            background-color: #adf5ad;
-            padding: 10px;
-            border-radius: 10px;
-            border: 1px dashed;
-        }
     </style>
     <h1>
         <?php esc_html_e('Import stockist', 'my-plugin-textdomain'); ?>
@@ -348,27 +342,7 @@ function import_vendors_contents()
                                                     </tr>
                                                 <?php } ?>
                                             <?php } ?>
-                                            <tr>
-                                                <th>
-                                                    categories
-                                                </th>
-                                                <td>
-                                                    <?= $data[11] ?>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td colspan="2">
-                                                    <div class="login-details">
-                                                        <div>
-                                                            <strong>username:</strong> <?= $username ?>
-                                                        </div>
-                                                        <div>
-                                                            <strong>password:</strong> <?= $password ?>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                     
                                         </table>
                                     </td>
                                 </tr>
