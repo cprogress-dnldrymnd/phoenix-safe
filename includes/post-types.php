@@ -237,7 +237,7 @@ function import_vendors_contents()
         .import-table th,
         .import-table td {
             padding: 5px 5px;
-            text-align: left ;
+            text-align: left;
         }
 
         .import-table table {
@@ -295,6 +295,9 @@ function import_vendors_contents()
                         <th>
                             URL
                         </th>
+                        <th>
+                            STATUS
+                        </th>
                     </tr>
                     <?php
                     $row = 0;
@@ -334,12 +337,13 @@ function import_vendors_contents()
 
                                 $id = $postslist[0]->ID;
 
-                                $stockist_name = '_stockist_'.get_post_meta($id, '_stockist_code', true);
+                                $stockist_name = '_stockist_' . get_post_meta($id, '_stockist_code', true);
 
 
                                 echo $stockist_name;
 
-                                update_post_meta($product_id, $stockist_name, $url);
+                                $update = update_post_meta($product_id, $stockist_name, $url);
+
 
                     ?>
                                 <tr>
@@ -350,6 +354,13 @@ function import_vendors_contents()
                                                 <?= $d ?>
                                             </td>
                                         <?php } ?>
+                                        <td>
+                                            <?php
+                                            if ($update) {
+                                                echo 'updated';
+                                            }
+                                            ?>
+                                        </td>
                                     <?php } ?>
 
                                 </tr>
