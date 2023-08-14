@@ -239,12 +239,6 @@ function import_vendors_contents()
             padding: 5px 5px;
         }
 
-        .import-table>table>tbody {
-            display: flex;
-            flex-wrap: wrap;
-
-        }
-
         .import-table table {
             width: 100%;
         }
@@ -260,7 +254,6 @@ function import_vendors_contents()
         .import-table>table>tbody>tr:nth-child(even) {
             background-color: #fff;
         }
-
     </style>
     <h1>
         <?php esc_html_e('Import stockist', 'my-plugin-textdomain'); ?>
@@ -291,6 +284,17 @@ function import_vendors_contents()
     ?>
             <div class="import-table">
                 <table>
+                    <tr>
+                        <th>
+                            Stockist Code
+                        </th>
+                        <th>
+                            Product ID
+                        </th>
+                        <th>
+                            URL
+                        </th>
+                    </tr>
                     <?php
                     $row = 0;
                     $meta_name = array();
@@ -321,28 +325,15 @@ function import_vendors_contents()
                                     <td>
                                         <h2 style="margin-top: 0; margin-bottom: 15px"><?= $meta_input['company_name'] ?> [<?= $status ?>]</h2>
                                         <table style="text-align: left">
-                                            <tr>
-                                                <th>
-                                                    post_id
-                                                </th>
-                                                <td>
-                                                   
-                                                    sss
-                                                </td>
-                                            </tr>
                                             <?php foreach ($meta_input as $key => $d) { ?>
                                                 <?php if ($key != '') { ?>
                                                     <tr>
-                                                        <th>
-                                                            <?= $key ?>
-                                                        </th>
                                                         <td>
                                                             <?= $d ?>
                                                         </td>
                                                     </tr>
                                                 <?php } ?>
                                             <?php } ?>
-                                     
                                         </table>
                                     </td>
                                 </tr>
