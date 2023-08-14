@@ -67,7 +67,7 @@ Container::make('post_meta', 'Product Data')
       Field::make('textarea', 'fingerprint', __('Fingerprint'))->set_width(33),
       Field::make('textarea', 'insurance', __('Insurance'))->set_width(33),
     )
-    );
+  );
 
 
 /*
@@ -90,11 +90,13 @@ Container::make('post_meta', 'Product Lists')
   );
 
 */
+
+global $post;
 Container::make('post_meta', 'Stockist Code')
   ->where('post_type', '=', 'stockists')
   ->add_fields(
     array(
-      Field::make('text', 'stockist_code', '')
-      ->set_help_text('Please make it unique for each')
+      Field::make('html', 'stockist_code_html', '')
+        ->html('stockist_' . $post->post_name)
     )
   );

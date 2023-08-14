@@ -319,6 +319,7 @@ function import_vendors_contents()
                                 $product_id = $meta_input['product_id'];
                                 $url = $meta_input['url'];
 
+                                carbon_set_post_meta(10, 'crb_text', 'Hello World!');
 
                     ?>
                                 <tr>
