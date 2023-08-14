@@ -321,7 +321,7 @@ function import_vendors_contents()
 
                                 $args = array(
                                     'posts_per_page' => 1,
-                                    'post_type'  => 'product',
+                                    'post_type'  => 'stockists',
                                     'meta_query' => array(
                                         array(
                                             'key'   => '_stockist_code',
