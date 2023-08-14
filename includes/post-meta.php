@@ -91,12 +91,16 @@ Container::make('post_meta', 'Product Lists')
 
 */
 
-global $post;
+
+
+$post = get_post($_GET['post']); 
+$slug = $post->post_name;
+
 Container::make('post_meta', 'Stockist Code')
   ->where('post_type', '=', 'stockists')
   ->add_fields(
     array(
       Field::make('html', 'stockist_code_html', '')
-        ->set_html('stockist_' . $post->post_name)
+        ->set_html('stockist_' . $slug)
     )
   );
