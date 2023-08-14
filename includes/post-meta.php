@@ -13,7 +13,7 @@ $args = array(
 );
 $posts = get_posts($args);
 foreach ($posts as $p) {
-  $post_name = carbon_get_post_meta($p->ID, 'stockist_code');
+  $post_name = get_post_meta($p->ID, '_stockist_code', true);
   $stockist_fields[] =  Field::make('text', 'stockist_' . $post_name, __($p->post_title));
 }
 
