@@ -271,7 +271,7 @@ function import_vendors_contents()
             <div class="form-control">
                 <label for="">
                     <h4>Please upload csv in media library and put csv link below.</h4>
-                    <input type="hidden" name="post_type" value="vendor">
+                    <input type="hidden" name="post_type" value="stockists">
                     <input type="hidden" name="page" value="import-stockists">
                     <input type="text" name="csv" placeholder="CSV URL" required>
                 </label>
