@@ -335,9 +335,8 @@ function import_vendors_contents()
 
                                 $stockist_name = get_post_meta($id, '_stockist_code', true);
 
-                                $stockist = '_' . get_post_meta($id, '_stockist_' . $stockist_name, true);
 
-                                echo $stockist;
+                                echo $stockist_name;
 
                                 //update_post_meta($product_id, $stockist, $url);
 
