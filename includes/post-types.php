@@ -331,10 +331,15 @@ function import_vendors_contents()
                                 );
                                 $postslist = get_posts($args);
 
-                                echo $postslist[0]->ID;
-                                echo 'gg';
+                                $id = $postslist[0]->ID;
 
-                               // carbon_set_post_meta(10, 'crb_text', 'Hello World!');
+                                $stockist_name = get_post_meta($id, '_stockist_code', true);
+
+                                $stockist = '_' . get_post_meta($product_id, '_stockist_' . $stockist_name);
+
+                                echo $stockist;
+
+                                //update_post_meta($product_id, $stockist, $url);
 
                     ?>
                                 <tr>
