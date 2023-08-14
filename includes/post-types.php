@@ -332,6 +332,7 @@ function import_vendors_contents()
                                 $postslist = get_posts($args);
 
                                 echo $postslist[0]->ID;
+                                echo 'gg';
 
                                // carbon_set_post_meta(10, 'crb_text', 'Hello World!');
 
