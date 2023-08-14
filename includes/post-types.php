@@ -338,7 +338,7 @@ function import_vendors_contents()
 
                                 echo $stockist_name;
 
-                                //update_post_meta($product_id, $stockist, $url);
+                                update_post_meta($product_id, $stockist_name, $url);
 
                     ?>
                                 <tr>
