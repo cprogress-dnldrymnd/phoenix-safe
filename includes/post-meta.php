@@ -97,6 +97,6 @@ Container::make('post_meta', 'Stockist Code')
   ->add_fields(
     array(
       Field::make('html', 'stockist_code_html', '')
-        ->html('stockist_' . $post->post_name)
+        ->set_html('stockist_' . $post->post_name)
     )
   );
