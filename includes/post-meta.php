@@ -13,7 +13,8 @@ $args = array(
 );
 $posts = get_posts($args);
 foreach ($posts as $p) {
-  $stockist_fields[] =  Field::make('text', 'stockist_' . $p->post_name, __($p->post_title));
+  $post_name = carbon_get_post_meta($p->ID, 'stockist_code');
+  $stockist_fields[] =  Field::make('text', 'stockist_' . $post_name, __($p->post_title));
 }
 
 
@@ -67,7 +68,7 @@ Container::make('post_meta', 'Product Data')
       Field::make('textarea', 'fingerprint', __('Fingerprint'))->set_width(33),
       Field::make('textarea', 'insurance', __('Insurance'))->set_width(33),
     )
-    );
+  );
 
 
 /*
@@ -95,6 +96,6 @@ Container::make('post_meta', 'Stockist Code')
   ->add_fields(
     array(
       Field::make('text', 'stockist_code', '')
-      ->set_help_text('Please make it unique for each')
+        ->set_help_text('Please make it unique for each')
     )
   );
