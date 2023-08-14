@@ -237,6 +237,7 @@ function import_vendors_contents()
         .import-table th,
         .import-table td {
             padding: 5px 5px;
+            text-align: left ;
         }
 
         .import-table table {
