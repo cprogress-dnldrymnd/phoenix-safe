@@ -322,20 +322,15 @@ function import_vendors_contents()
 
                     ?>
                                 <tr>
-                                    <td>
-                                        <h2 style="margin-top: 0; margin-bottom: 15px"><?= $meta_input['company_name'] ?> [<?= $status ?>]</h2>
-                                        <table style="text-align: left">
-                                            <?php foreach ($meta_input as $key => $d) { ?>
-                                                <?php if ($key != '') { ?>
-                                                    <tr>
-                                                        <td>
-                                                            <?= $d ?>
-                                                        </td>
-                                                    </tr>
-                                                <?php } ?>
-                                            <?php } ?>
-                                        </table>
-                                    </td>
+
+                                    <?php foreach ($meta_input as $key => $d) { ?>
+                                        <?php if ($key != '') { ?>
+                                            <td>
+                                                <?= $d ?>
+                                            </td>
+                                        <?php } ?>
+                                    <?php } ?>
+
                                 </tr>
                             <?php
                             }
