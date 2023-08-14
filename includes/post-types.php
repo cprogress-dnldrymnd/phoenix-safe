@@ -171,31 +171,23 @@ new newPostType(
 
 
 // Add the custom columns to the stockists post type:
-add_filter( 'manage_stockists_posts_columns', 'set_custom_edit_stockists_columns' );
-function set_custom_edit_stockists_columns($columns) {
-    unset( $columns['author'] );
-    $columns['stockists_author'] = __( 'Author', 'your_text_domain' );
-    $columns['publisher'] = __( 'Publisher', 'your_text_domain' );
+add_filter('manage_stockists_posts_columns', 'set_custom_edit_stockists_columns');
+function set_custom_edit_stockists_columns($columns)
+{
+    unset($columns['author']);
+    $columns['stockist_code'] = __('Stockist Code', 'your_text_domain');
 
     return $columns;
 }
 
 // Add the data to the custom columns for the stockists post type:
-add_action( 'manage_stockists_posts_custom_column' , 'custom_stockists_column', 10, 2 );
-function custom_stockists_column( $column, $post_id ) {
-    switch ( $column ) {
+add_action('manage_stockists_posts_custom_column', 'custom_stockists_column', 10, 2);
+function custom_stockists_column($column, $post_id)
+{
+    switch ($column) {
 
-        case 'stockists_author' :
-            $terms = get_the_term_list( $post_id , 'stockists_author' , '' , ',' , '' );
-            if ( is_string( $terms ) )
-                echo $terms;
-            else
-                _e( 'Unable to get author(s)', 'your_text_domain' );
+        case 'stockist_code':
+            echo carbon_get_the_post_meta('stockist_code');
             break;
-
-        case 'publisher' :
-            echo get_post_meta( $post_id , 'publisher' , true ); 
-            break;
-
     }
 }
