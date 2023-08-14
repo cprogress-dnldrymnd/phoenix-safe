@@ -36,17 +36,16 @@ function latest_post() {
 
 function elementor_slider() {
   $pagination = jQuery('<div class="e-con swiper-pagination-holder"><div class="e-con-inner"><div class="swiper-pagination swiper-pagination-elementor"></div></div></div>');
-  $navigation = jQuery('<div class="swiper-button-next"></div> <div class="swiper-button-prev"></div>');
-  $navigation.insertAfter('.elementor-swiper-slider-js .swiper-wrapper');
+  $pagination.insertAfter('.elementor-swiper-slider-js .swiper-wrapper');
   setTimeout(function () {
     var elementorSlider = new Swiper(".elementor-swiper-slider-js", {
       loop: false,
       spaceBetween: 0,
       slidesPerView: 1,
       autoplay: false,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
       },
 
     });
