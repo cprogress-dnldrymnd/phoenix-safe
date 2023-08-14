@@ -339,7 +339,9 @@ function import_vendors_contents()
 
                                 $stockist_name = '_stockist_' . get_post_meta($id, '_stockist_code', true);
 
-                                $update = update_post_meta($product_id, $stockist_name, $url);
+                                if ($postslist) {
+                                    $update = update_post_meta($product_id, $stockist_name, $url);
+                                }
 
 
                     ?>
@@ -355,10 +357,14 @@ function import_vendors_contents()
                                     <?php } ?>
                                     <td>
                                         <?php
-                                        if ($update) {
-                                            echo 'updated';
+                                        if ($postslist) {
+                                            if ($update) {
+                                                echo 'updated';
+                                            } else {
+                                                echo 'already added';
+                                            }
                                         } else {
-                                            echo 'already added';
+                                            echo 'stockist code does not exists';
                                         }
                                         ?>
                                     </td>
