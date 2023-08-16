@@ -270,7 +270,9 @@ while (have_posts()) {
 
 		});
 
-
+		Fancybox.bind("[data-fancybox]", {
+			// Your custom options
+		});
 
 
 	});
