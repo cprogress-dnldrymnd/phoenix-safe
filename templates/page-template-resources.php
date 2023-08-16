@@ -171,7 +171,7 @@ while (have_posts()) {
 
 											<li class="col-md-4">
 												<div class="inner">
-													<a href="<?= $link  ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
+													<a href="<?= $link  ?>"  class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
 
 														<div class="image-box">
 
