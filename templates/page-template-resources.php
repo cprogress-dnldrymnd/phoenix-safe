@@ -7,7 +7,7 @@ Template name: Page Template : Resources
 ?>
 
 <?php get_header() ?>
-<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
 <?php
 while (have_posts()) {
@@ -94,6 +94,8 @@ while (have_posts()) {
 							<h4 class="widget-title">
 
 								Resources
+								<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+								<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
 							</h4>
 
@@ -246,7 +248,7 @@ while (have_posts()) {
 <?php } ?>
 
 <?php get_footer() ?>
-<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 
 
