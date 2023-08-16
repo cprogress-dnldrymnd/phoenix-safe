@@ -32,17 +32,24 @@ Container::make('post_meta', 'Product Data')
                   'Brochure' => 'Brochure',
                   'Technical Data' => 'Technical Data',
                   'Videos' => 'Videos',
+                  'Videos Embed' => 'Videos Embed',
                 )
               )->set_width(100),
             Field::make('text', 'resource_title', __('Resource Title'))->set_width(25),
             Field::make('image', 'resource_thumbnail', __('Resource Thumbnail'))->set_width(25),
-            Field::make('file', 'resource_file', __('Resource File'))->set_width(25),
-            Field::make('file', 'embed_video_url', __('Embed Video URL'))->set_width(25)
+            Field::make('file', 'resource_file', __('Resource File'))->set_width(25)
               ->set_conditional_logic(array(
-                'relation' => 'AND', // Optional, defaults to "AND"
                 array(
                   'field' => 'resource_type',
-                  'value' => 'Videos', // Optional, defaults to "". Should be an array if "IN" or "NOT IN" operators are used.
+                  'value' => 'Videos Embed', // Optional, defaults to "". Should be an array if "IN" or "NOT IN" operators are used.
+                  'compare' => '!=', // Optional, defaults to "=". Available operators: =, <, >, <=, >=, IN, NOT IN
+                )
+              )),
+            Field::make('file', 'embed_video_url', __('Embed Video URL'))->set_width(25)
+              ->set_conditional_logic(array(
+                array(
+                  'field' => 'resource_type',
+                  'value' => 'Videos Embed', // Optional, defaults to "". Should be an array if "IN" or "NOT IN" operators are used.
                   'compare' => '=', // Optional, defaults to "=". Available operators: =, <, >, <=, >=, IN, NOT IN
                 )
               )),
