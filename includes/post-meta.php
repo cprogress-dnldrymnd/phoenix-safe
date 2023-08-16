@@ -33,7 +33,7 @@ Container::make('post_meta', 'Product Data')
                   'Technical Data' => 'Technical Data',
                   'Videos' => 'Videos',
                 )
-              )->set_width(25),
+              )->set_width(100),
             Field::make('text', 'resource_title', __('Resource Title'))->set_width(25),
             Field::make('image', 'resource_thumbnail', __('Resource Thumbnail'))->set_width(25),
             Field::make('file', 'resource_file', __('Resource File'))->set_width(25),
