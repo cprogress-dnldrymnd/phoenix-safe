@@ -161,7 +161,7 @@ while (have_posts()) {
 											$resource_thumbnail = $resource_val['resource_thumbnail'];
 											$resource_file = $resource_val['resource_file'];
 											$embed_video_url = $resource_val['embed_video_url'];
-											
+
 											if ($resource_type != 'Videos Embed') {
 												$link = wp_get_attachment_url($resource_file);
 											} else {
@@ -171,7 +171,7 @@ while (have_posts()) {
 
 											<li class="col-md-4">
 												<div class="inner">
-													<a href="<?= $link  ?>"  class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
+													<a href="<?= $link ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link link-fancy-box">
 
 														<div class="image-box">
 
@@ -268,6 +268,10 @@ while (have_posts()) {
 
 		});
 
+
+		jQuery(document).ready(function() {
+			jQuery(".link-fancy-box").fancybox();
+		});
 
 
 	});
