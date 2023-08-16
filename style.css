@@ -643,4 +643,10 @@ input[type="date"] {
     padding: 10px 20px !important;
     line-height: 1.5; }
 
+.fancybox__content.fancybox__content > .f-button.is-close-btn {
+  width: auto;
+  height: auto;
+  padding: 0;
+  background-color: transparent; }
+
 /*# sourceMappingURL=style.css.map */
