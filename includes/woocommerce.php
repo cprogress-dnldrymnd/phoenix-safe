@@ -239,3 +239,9 @@ function add_text_after_excerpt_single_product($post_excerpt)
 <?php
   return ob_get_clean();
 }
+
+
+/**
+ * Remove related products output
+ */
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
