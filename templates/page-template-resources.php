@@ -271,9 +271,6 @@ while (have_posts()) {
 		});
 
 
-		jQuery(document).ready(function() {
-			jQuery(".link-fancy-box").fancybox();
-		});
 
 
 	});
