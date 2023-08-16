@@ -35,6 +35,7 @@ function woo_resources_tab_content()
         'resource_title'     => $resource['resource_title'],
         'resource_thumbnail' => $resource['resource_thumbnail'],
         'resource_file'      => $resource['resource_file'],
+        'embed_video_url'      => $resource['embed_video_url'],
       );
     }
   }
@@ -53,11 +54,18 @@ function woo_resources_tab_content()
           $resource_title = $resource_val['resource_title'];
           $resource_thumbnail = $resource_val['resource_thumbnail'];
           $resource_file = $resource_val['resource_file'];
+          $embed_video_url = $resource_val['embed_video_url'];
+
+          if ($resource_type != 'Videos Embed') {
+            $link = wp_get_attachment_url($resource_file);
+          } else {
+            $link = $embed_video_url;
+          }
           ?>
 
           <li class="col-md-3">
             <div class="inner">
-              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
 
                 <div class="image-box">
 
@@ -244,4 +252,4 @@ function add_text_after_excerpt_single_product($post_excerpt)
 /**
  * Remove related products output
  */
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 99 );
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 99);
