@@ -31,8 +31,8 @@ Container::make('post_meta', 'Product Data')
                 array(
                   'Brochure' => 'Brochure',
                   'Technical Data' => 'Technical Data',
-                  'Videos' => 'Videos',
-                  'Videos Embed' => 'Videos Embed',
+                  'Videos' => 'Video',
+                  'Videos Embed' => 'Video Embed',
                 )
               )->set_width(100),
             Field::make('text', 'resource_title', __('Resource Title'))->set_width(25),
