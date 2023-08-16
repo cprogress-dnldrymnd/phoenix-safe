@@ -45,7 +45,7 @@ Container::make('post_meta', 'Product Data')
                   'compare' => '!=', // Optional, defaults to "=". Available operators: =, <, >, <=, >=, IN, NOT IN
                 )
               )),
-            Field::make('file', 'embed_video_url', __('Embed Video URL'))->set_width(25)
+            Field::make('oembed', 'embed_video_url', __('Embed Video URL'))->set_width(25)
               ->set_conditional_logic(array(
                 array(
                   'field' => 'resource_type',
