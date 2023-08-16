@@ -244,4 +244,4 @@ function add_text_after_excerpt_single_product($post_excerpt)
 /**
  * Remove related products output
  */
-remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 99 );
