@@ -7,7 +7,6 @@ Template name: Page Template : Resources
 ?>
 
 <?php get_header() ?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 
 <?php
 while (have_posts()) {
@@ -248,7 +247,6 @@ while (have_posts()) {
 <?php } ?>
 
 <?php get_footer() ?>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
 
 
 
@@ -269,10 +267,7 @@ while (have_posts()) {
 			ajax();
 
 		});
-
-		Fancybox.bind("[data-fancybox]", {
-			// Your custom options
-		});
+		s
 
 
 	});

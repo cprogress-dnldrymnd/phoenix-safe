@@ -39,9 +39,11 @@ function phoenix_safe_child_enqueue_styles()
 		wp_get_theme()->get('Version')
 	);
 
-	wp_enqueue_style('tissue-paper-swiper-css', vendor_dir . 'swiper/swiper-bundle.min.css');
-	wp_enqueue_script('tissue-paper-swiper-js', vendor_dir . 'swiper/swiper-bundle.min.js');
-	wp_enqueue_script('tissue-paper-js', assets_dir . 'js/main.js');
+	wp_enqueue_style('phoenix-safe-swiper-css', vendor_dir . 'swiper/swiper-bundle.min.css');
+	wp_enqueue_style('phoenix-safe-fancybox-css', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css');
+	wp_enqueue_script('phoenix-safe-swiper-js', vendor_dir . 'swiper/swiper-bundle.min.js');
+	wp_enqueue_script('phoenix-safe-fancybox-js', 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js');
+	wp_enqueue_script('phoenix-safe-js', assets_dir . 'js/main.js');
 }
 add_action('wp_enqueue_scripts', 'phoenix_safe_child_enqueue_styles', 11);
 
@@ -174,7 +176,8 @@ function action_admin_head()
 
 			#wp-admin-bar-ciyashop-options>a {
 				font-size: 0;
-				display: none !important;;
+				display: none !important;
+				;
 			}
 
 			#wp-admin-bar-ciyashop-options>a:after {
