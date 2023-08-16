@@ -7,14 +7,13 @@ Template name: Page Template : Resources
 ?>
 
 <?php get_header() ?>
-
-
+<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
 
 <?php
 while (have_posts()) {
 	the_post();
 
-	?>
+?>
 
 	<?php
 
@@ -49,16 +48,17 @@ while (have_posts()) {
 								'resource_title'     => $resource['resource_title'],
 								'resource_thumbnail' => $resource['resource_thumbnail'],
 								'resource_file'      => $resource['resource_file'],
+								'embed_video_url'      => $resource['embed_video_url'],
 							);
 						}
-					}
-					else {
+					} else {
 						$resources_array[] = array(
 							'resource_product'   => get_the_title(),
 							'resource_type'      => $resource['resource_type'],
 							'resource_title'     => $resource['resource_title'],
 							'resource_thumbnail' => $resource['resource_thumbnail'],
 							'resource_file'      => $resource['resource_file'],
+							'embed_video_url'      => $resource['embed_video_url'],
 						);
 					}
 				}
@@ -71,31 +71,7 @@ while (have_posts()) {
 	<div class="trydus-woocommerce-page woocommerce">
 
 		<div class="container">
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 			<div class="row justify-content-center">
 
 				<div class="col-lg-3 col-md-4">
@@ -109,8 +85,7 @@ while (have_posts()) {
 
 							<label class="screen-reader-text" for="woocommerce-product-search-field-0">Search for:</label>
 
-							<input type="search" id="woocommerce-product-search-field-0" class="search-field"
-								placeholder="Search resources.." value="" name="search">
+							<input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Search resources.." value="" name="search">
 
 						</div>
 
@@ -132,8 +107,7 @@ while (have_posts()) {
 								</li>
 
 
-								<li
-									class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Brochure') ? 'active' : '' ?>">
+								<li class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Brochure') ? 'active' : '' ?>">
 									<a href="?resource_type=Brochure">
 										Brochures
 									</a>
@@ -141,8 +115,7 @@ while (have_posts()) {
 								</li>
 
 
-								<li
-									class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Technical Data') ? 'active' : '' ?>">
+								<li class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Technical Data') ? 'active' : '' ?>">
 									<a href="?resource_type=Technical Data">
 										Technical Data
 									</a>
@@ -177,7 +150,7 @@ while (have_posts()) {
 								<ul class="row" id="resources">
 
 									<?php if ($resources_array) { ?>
-								
+
 										<?php foreach ($resources_array as $resource_val) { ?>
 
 											<?php
@@ -187,13 +160,18 @@ while (have_posts()) {
 											$resource_title = $resource_val['resource_title'];
 											$resource_thumbnail = $resource_val['resource_thumbnail'];
 											$resource_file = $resource_val['resource_file'];
-
+											$embed_video_url = $resource_val['embed_video_url'];
+											
+											if ($resource_type != 'Videos Embed') {
+												$link = wp_get_attachment_url($resource_file);
+											} else {
+												$link = $embed_video_url;
+											}
 											?>
 
 											<li class="col-md-4">
 												<div class="inner">
-													<a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
-														class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+													<a href="<?= $link  ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
 
 														<div class="image-box">
 
@@ -211,20 +189,14 @@ while (have_posts()) {
 																</h2>
 															</div>
 
-															<span
-																class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+															<span class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
 																<?php
 																if ($resource_type == 'Brochure') {
-
 																	echo 'READ THE BROCHURE';
-
-																}
-																else if ($resource_type == 'Technical Data') {
+																} else if ($resource_type == 'Technical Data') {
 
 																	echo 'READ THE SPEC';
-
-																}
-																else {
+																} else {
 																	echo 'WATCH THE VIDEO';
 																}
 																?>
@@ -238,8 +210,7 @@ while (have_posts()) {
 
 										<?php } ?>
 
-									<?php }
-									else { ?>
+									<?php } else { ?>
 
 										<li class="no-resource col-md-12">
 
@@ -275,16 +246,15 @@ while (have_posts()) {
 <?php } ?>
 
 <?php get_footer() ?>
-
+<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 
 
 
 
 <script>
+	jQuery(document).ready(function() {
 
-	jQuery(document).ready(function () {
-
-		jQuery("#resources_form").change(function (e) {
+		jQuery("#resources_form").change(function(e) {
 
 			e.preventDefault();
 
@@ -292,7 +262,7 @@ while (have_posts()) {
 
 		});
 
-		jQuery('input[name="search"').keyup(function (event) {
+		jQuery('input[name="search"').keyup(function(event) {
 
 			ajax();
 
@@ -314,13 +284,13 @@ while (have_posts()) {
 
 		var file_type_array = [];
 
-		resource_type.each(function (index, el) {
+		resource_type.each(function(index, el) {
 
 			resource_type_array.push(jQuery(this).val());
 
 		});
 
-		file_type.each(function (index, el) {
+		file_type.each(function(index, el) {
 
 			file_type_array.push(jQuery(this).val());
 
@@ -357,7 +327,7 @@ while (have_posts()) {
 
 			},
 
-			success: function (response) {
+			success: function(response) {
 
 				jQuery('#results .results-holder').html(response);
 
@@ -383,7 +353,7 @@ while (have_posts()) {
 
 		xhr.responseType = "blob";
 
-		xhr.onload = function () {
+		xhr.onload = function() {
 
 			var urlCreator = window.URL || window.webkitURL;
 
@@ -406,5 +376,4 @@ while (have_posts()) {
 		xhr.send();
 
 	}
-
 </script>
