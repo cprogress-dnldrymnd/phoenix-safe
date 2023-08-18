@@ -165,7 +165,7 @@ function woo_stockists_tab_content()
 {
   ob_start();
   ?>
-  <div class="product-stockist-holder">
+  <div class="product-stockist-holder mt-4">
 
     <h3>Buy Online</h3>
 
@@ -173,6 +173,7 @@ function woo_stockists_tab_content()
     $args = array(
       'post_type'      => 'stockists',
       'posts_per_page' => -1,
+      'orderby' => 'rand'
     );
     $product_id = get_the_ID();
     $stockist_arr = array();
