@@ -16,11 +16,6 @@ function woo_resources_tab($tabs)
   );
 
 
-  $tabs['stockists'] = array(
-    'title'    => __('Stockists', 'woocommerce'),
-    'priority' => 50,
-    'callback' => 'woo_stockists_tab_content'
-  );
 
   return $tabs;
 }
@@ -35,11 +30,11 @@ function woo_resources_tab_content()
         'resource_title'     => $resource['resource_title'],
         'resource_thumbnail' => $resource['resource_thumbnail'],
         'resource_file'      => $resource['resource_file'],
-        'embed_video_url'      => $resource['embed_video_url'],
+        'embed_video_url'    => $resource['embed_video_url'],
       );
     }
   }
-?>
+  ?>
   <div class="resource-holder">
 
     <ul class="row" id="resources">
@@ -58,14 +53,16 @@ function woo_resources_tab_content()
 
           if ($resource_type != 'Videos Embed') {
             $link = wp_get_attachment_url($resource_file);
-          } else {
+          }
+          else {
             $link = $embed_video_url;
           }
           ?>
 
           <li class="col-md-3">
             <div class="inner">
-              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank" class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
+              <a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
+                class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
 
                 <div class="image-box">
 
@@ -83,15 +80,18 @@ function woo_resources_tab_content()
                     </h2>
                   </div>
 
-                  <span class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+                  <span
+                    class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
                     <?php
                     if ($resource_type == 'Brochure') {
 
                       echo 'READ THE BROCHURE';
-                    } else if ($resource_type == 'Technical Data') {
+                    }
+                    else if ($resource_type == 'Technical Data') {
 
                       echo 'READ THE SPEC';
-                    } else {
+                    }
+                    else {
                       echo 'WATCH THE VIDEO';
                     }
                     ?>
@@ -105,7 +105,8 @@ function woo_resources_tab_content()
 
         <?php } ?>
 
-      <?php } else { ?>
+      <?php }
+      else { ?>
 
         <li class="no-resource col-md-12">
 
@@ -131,7 +132,7 @@ function woo_resources_tab_content()
 
       xhr.responseType = "blob";
 
-      xhr.onload = function() {
+      xhr.onload = function () {
 
         var urlCreator = window.URL || window.webkitURL;
 
@@ -155,21 +156,22 @@ function woo_resources_tab_content()
 
     }
   </script>
-<?php
+  <?php
 
 }
 
 
 function woo_stockists_tab_content()
 {
-?>
+  ob_start();
+  ?>
   <div class="product-stockist-holder">
 
-    <h2>Stockists</h2>
+    <h3>Buy Online</h3>
 
     <?php
     $args = array(
-      'post_type' => 'stockists',
+      'post_type'      => 'stockists',
       'posts_per_page' => -1,
     );
     $product_id = get_the_ID();
@@ -205,7 +207,8 @@ function woo_stockists_tab_content()
     </div>
   </div>
 
-<?php
+  <?php
+  return ob_get_clean();
 }
 
 
@@ -214,11 +217,29 @@ function add_text_after_excerpt_single_product($post_excerpt)
 {
   ob_start();
   echo $post_excerpt;
+  echo woo_stockists_tab_content();
   $SVG = new SVG;
   $specs = array(
-    'fire_protection', 'drop_test', 'ventilation', 'temperature', 'doors', 'locking', 'construction', 'power', 'shelving', 'multipoint_lock', 'keypad', 'alarm', 'water_resist', 'combination', 'laptop', 'keyhole', 'fingerprint', 'insurance'
+    'fire_protection',
+    'drop_test',
+    'ventilation',
+    'temperature',
+    'doors',
+    'locking',
+    'construction',
+    'power',
+    'shelving',
+    'multipoint_lock',
+    'keypad',
+    'alarm',
+    'water_resist',
+    'combination',
+    'laptop',
+    'keyhole',
+    'fingerprint',
+    'insurance'
   );
-?>
+  ?>
   <div class="specs-box mt-4">
     <ul>
       <?php foreach ($specs as $spec) { ?>
@@ -244,7 +265,7 @@ function add_text_after_excerpt_single_product($post_excerpt)
 
     </ul>
   </div>
-<?php
+  <?php
   return ob_get_clean();
 }
 
