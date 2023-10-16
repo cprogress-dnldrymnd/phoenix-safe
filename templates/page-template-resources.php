@@ -12,7 +12,7 @@ Template name: Page Template : Resources
 while (have_posts()) {
 	the_post();
 
-?>
+	?>
 
 	<?php
 
@@ -40,24 +40,39 @@ while (have_posts()) {
 			if ($resources) {
 				foreach ($resources as $resource) {
 					if (isset($_GET['resource_type'])) {
-						if ($resource['resource_type'] == $_GET['resource_type']) {
-							$resources_array[] = array(
-								'resource_product'   => get_the_title(),
-								'resource_type'      => $resource['resource_type'],
-								'resource_title'     => $resource['resource_title'],
-								'resource_thumbnail' => $resource['resource_thumbnail'],
-								'resource_file'      => $resource['resource_file'],
-								'embed_video_url'      => $resource['embed_video_url'],
-							);
+						if ($_GET['resource_type'] == 'Videos') {
+							if ($resource['resource_type'] == 'Videos' || $resource['resource_type'] == 'Videos Embed') {
+								$resources_array[] = array(
+									'resource_product'   => get_the_title(),
+									'resource_type'      => $resource['resource_type'],
+									'resource_title'     => $resource['resource_title'],
+									'resource_thumbnail' => $resource['resource_thumbnail'],
+									'resource_file'      => $resource['resource_file'],
+									'embed_video_url'    => $resource['embed_video_url'],
+								);
+							}
 						}
-					} else {
+						else {
+							if ($resource['resource_type'] == $_GET['resource_type']) {
+								$resources_array[] = array(
+									'resource_product'   => get_the_title(),
+									'resource_type'      => $resource['resource_type'],
+									'resource_title'     => $resource['resource_title'],
+									'resource_thumbnail' => $resource['resource_thumbnail'],
+									'resource_file'      => $resource['resource_file'],
+									'embed_video_url'    => $resource['embed_video_url'],
+								);
+							}
+						}
+					}
+					else {
 						$resources_array[] = array(
 							'resource_product'   => get_the_title(),
 							'resource_type'      => $resource['resource_type'],
 							'resource_title'     => $resource['resource_title'],
 							'resource_thumbnail' => $resource['resource_thumbnail'],
 							'resource_file'      => $resource['resource_file'],
-							'embed_video_url'      => $resource['embed_video_url'],
+							'embed_video_url'    => $resource['embed_video_url'],
 						);
 					}
 				}
@@ -84,7 +99,8 @@ while (have_posts()) {
 
 							<label class="screen-reader-text" for="woocommerce-product-search-field-0">Search for:</label>
 
-							<input type="search" id="woocommerce-product-search-field-0" class="search-field" placeholder="Search resources.." value="" name="search">
+							<input type="search" id="woocommerce-product-search-field-0" class="search-field"
+								placeholder="Search resources.." value="" name="search">
 
 						</div>
 
@@ -104,7 +120,8 @@ while (have_posts()) {
 								</li>
 
 
-								<li class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Brochure') ? 'active' : '' ?>">
+								<li
+									class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Brochure') ? 'active' : '' ?>">
 									<a href="?resource_type=Brochure">
 										Brochures
 									</a>
@@ -112,7 +129,8 @@ while (have_posts()) {
 								</li>
 
 
-								<li class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Technical Data') ? 'active' : '' ?>">
+								<li
+									class="<?= (isset($_GET['resource_type']) && $_GET['resource_type'] == 'Technical Data') ? 'active' : '' ?>">
 									<a href="?resource_type=Technical Data">
 										Technical Data
 									</a>
@@ -161,14 +179,16 @@ while (have_posts()) {
 
 											if ($resource_type != 'Videos Embed') {
 												$link = wp_get_attachment_url($resource_file);
-											} else {
+											}
+											else {
 												$link = $embed_video_url;
 											}
 											?>
 
 											<li class="col-md-4">
 												<div class="inner">
-													<a href="<?= $link ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
+													<a href="<?= $link ?>" class="woocommerce-LoopProduct-link woocommerce-loop-product__link"
+														data-fancybox>
 
 														<div class="image-box">
 
@@ -186,14 +206,17 @@ while (have_posts()) {
 																</h2>
 															</div>
 
-															<span class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
+															<span
+																class="resource-btn d-inline-flex align-items-center disable-default-hover-no w-100 justify-content-between">
 																<?php
 																if ($resource_type == 'Brochure') {
 																	echo 'READ THE BROCHURE';
-																} else if ($resource_type == 'Technical Data') {
+																}
+																else if ($resource_type == 'Technical Data') {
 
 																	echo 'READ THE SPEC';
-																} else {
+																}
+																else {
 																	echo 'WATCH THE VIDEO';
 																}
 																?>
@@ -207,7 +230,8 @@ while (have_posts()) {
 
 										<?php } ?>
 
-									<?php } else { ?>
+									<?php }
+									else { ?>
 
 										<li class="no-resource col-md-12">
 
@@ -248,9 +272,9 @@ while (have_posts()) {
 
 
 <script>
-	jQuery(document).ready(function() {
+	jQuery(document).ready(function () {
 
-		jQuery("#resources_form").change(function(e) {
+		jQuery("#resources_form").change(function (e) {
 
 			e.preventDefault();
 
@@ -258,7 +282,7 @@ while (have_posts()) {
 
 		});
 
-		jQuery('input[name="search"').keyup(function(event) {
+		jQuery('input[name="search"').keyup(function (event) {
 
 			ajax();
 
@@ -280,13 +304,13 @@ while (have_posts()) {
 
 		var file_type_array = [];
 
-		resource_type.each(function(index, el) {
+		resource_type.each(function (index, el) {
 
 			resource_type_array.push(jQuery(this).val());
 
 		});
 
-		file_type.each(function(index, el) {
+		file_type.each(function (index, el) {
 
 			file_type_array.push(jQuery(this).val());
 
@@ -323,7 +347,7 @@ while (have_posts()) {
 
 			},
 
-			success: function(response) {
+			success: function (response) {
 
 				jQuery('#results .results-holder').html(response);
 
@@ -349,7 +373,7 @@ while (have_posts()) {
 
 		xhr.responseType = "blob";
 
-		xhr.onload = function() {
+		xhr.onload = function () {
 
 			var urlCreator = window.URL || window.webkitURL;
 

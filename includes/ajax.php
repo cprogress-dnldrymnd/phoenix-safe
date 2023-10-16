@@ -25,14 +25,29 @@ function resources()
 			if ($resources) {
 				foreach ($resources as $resource) {
 					if (isset($_GET['resource_type'])) {
-						if ($resource['resource_type'] == $_GET['resource_type']) {
-							$resources_array[] = array(
-								'resource_product'   => get_the_title(),
-								'resource_type'      => $resource['resource_type'],
-								'resource_title'     => $resource['resource_title'],
-								'resource_thumbnail' => $resource['resource_thumbnail'],
-								'resource_file'      => $resource['resource_file'],
-							);
+						if ($_GET['resource_type'] == 'Videos') {
+							if ($resource['resource_type'] == 'Videos' || $resource['resource_type'] == 'Videos Embed') {
+								$resources_array[] = array(
+									'resource_product'   => get_the_title(),
+									'resource_type'      => $resource['resource_type'],
+									'resource_title'     => $resource['resource_title'],
+									'resource_thumbnail' => $resource['resource_thumbnail'],
+									'resource_file'      => $resource['resource_file'],
+									'embed_video_url'    => $resource['embed_video_url'],
+								);
+							}
+						}
+						else {
+							if ($resource['resource_type'] == $_GET['resource_type']) {
+								$resources_array[] = array(
+									'resource_product'   => get_the_title(),
+									'resource_type'      => $resource['resource_type'],
+									'resource_title'     => $resource['resource_title'],
+									'resource_thumbnail' => $resource['resource_thumbnail'],
+									'resource_file'      => $resource['resource_file'],
+									'embed_video_url'    => $resource['embed_video_url'],
+								);
+							}
 						}
 					}
 					else {
