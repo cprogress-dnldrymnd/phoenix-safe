@@ -91,11 +91,7 @@ while (have_posts()) {
 						<div class="custom-checkbox-list custom-checkbox-list-v2 resource-type with-border">
 
 							<h4 class="widget-title">
-
 								Resources
-								<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-								<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
-
 							</h4>
 
 							<ul class="list-unstyled resource-type">
