@@ -67,7 +67,7 @@ function resources()
 				<li class="col-md-4">
 					<div class="inner">
 						<a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
-							class="woocommerce-LoopProduct-link woocommerce-loop-product__link">
+							class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
 
 							<div class="image-box">
 
