@@ -274,13 +274,7 @@ while (have_posts()) {
 <script>
 	jQuery(document).ready(function () {
 
-		jQuery("#resources_form").change(function (e) {
-
-			e.preventDefault();
-
-			ajax();
-
-		});
+		
 
 		jQuery('input[name="search"').keyup(function (event) {
 
