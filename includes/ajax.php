@@ -77,11 +77,18 @@ function resources()
 				$resource_title = $resource_val['resource_title'];
 				$resource_thumbnail = $resource_val['resource_thumbnail'];
 				$resource_file = $resource_val['resource_file'];
+				$embed_video_url = $resource_val['embed_video_url'];
+				if ($resource_type != 'Videos Embed') {
+					$link = wp_get_attachment_url($resource_file);
+				}
+				else {
+					$link = $embed_video_url;
+				}
 				?>
 
 				<li class="col-md-4">
 					<div class="inner">
-						<a href="<?= wp_get_attachment_url($resource_file) ?>" target="_blank"
+						<a href="<?= $link ?>" target="_blank"
 							class="woocommerce-LoopProduct-link woocommerce-loop-product__link" data-fancybox>
 
 							<div class="image-box">
